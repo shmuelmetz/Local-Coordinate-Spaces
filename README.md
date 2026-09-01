@@ -31,7 +31,11 @@ lualatex paper.tex   # or pdflatex
 ## Repository structure
 
 ```
-TODO: populate as files are added
+LCS.arXiv.V2.tex / .pdf              -- "Local Coordinate Spaces" paper
+M-atlas.tex / .pdf                    -- "Towards a taxonomy of atlases..." paper
+Local.Coordinate.Space.arXiv.abstract -- abstract for the LCS paper
+M-atlas.abstract                      -- abstract for the M-atlas paper
+SEMANTIC-MARKUP-MIGRATION.md          -- rationale for adopting LaTeX-Semantic-Markup
 ```
 
 ## Public identifiers
