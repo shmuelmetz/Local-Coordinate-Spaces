@@ -63,21 +63,29 @@ context.
 | `\composet` | `\morphComposeTail` | 10 / 1 | Mechanical rename |
 | `\into` | `\morphMono` | 6 / 14 | Mechanical rename |
 | `\onto` | `\morphEpi` | 38 / 15 | Mechanical rename |
-| *(none — see below)* | `\morphName{X}` | 0 | **Not mechanical** |
+| `\funcname{X}` | `\morphName{X}` | 2151 / 2114 | Mechanical rename |
+| `\funcseqname{X}` | `\morphSeqName{X}` | 718 / 426 | Mechanical rename |
 
-**`\morphName` has no legacy macro to rename from.** The papers'
-own `\funcname`/`\funcseqname` are commented out in the source
-(`% \newcommand \funcname [1] {\mathit{#1}}`) — morphisms are
-currently just bare math variables (`$f$`, `$g$`), never wrapped in
-any macro. `\funcname`/`\funcseqname` are exactly what `\morphName`/
-`\morphSeqName` formalize semantically (a disabled placeholder for
-the same concept the new package now names) — but since the papers'
-own macro was never turned on, there's no live call site to
-mechanically rename *from*. Migrating morphism names means manually
-finding and wrapping each bare occurrence — a semantic-judgment task
-done sentence by sentence, not a search-and-replace — and is treated
-as its own separate, later phase, not blocking the mechanical renames
-above.
+**Correction, 2026-09-01:** this table previously said `\morphName`
+had no legacy macro to rename from, citing only the papers' disabled,
+pre-`expl3`-era `% \newcommand \funcname [1] {\mathit{#1}}`. That was
+wrong — the user caught it directly: *"the commented out definition
+dates from before I was using expl3; look for the second
+definition."* A second, active, genuinely `expl3`-based
+`\funcname`/`\funcseqname` definition exists further down in both
+papers (identical in `LCS.arXiv.V2.tex`/`M-atlas.tex`), used at the
+4265 + 1144 real call sites in the table above — not a disabled
+placeholder. It auto-detects the display style itself, the same way
+`\catname`/`\cat` effectively split on name length: a single-token
+argument renders italic (bold italic for the Seq form); anything
+longer renders upright roman (bold roman). `\morphName`/
+`\morphSeqName` were corrected to match — see that repo's own commit
+history for the fix (found the same `f^2`-style decorated-symbol edge
+case `\catName`'s own tightening had already needed, one real call
+site, fixed by reusing the same heuristic rather than special-casing
+it again). **So every macro in this table is now a mechanical
+rename** — there is no separate "manual morphism-tagging" phase after
+all.
 
 ## Changes
 
