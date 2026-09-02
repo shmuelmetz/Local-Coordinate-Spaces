@@ -61,7 +61,7 @@ context.
 | `\compose` (bare or `[label]`) | `\morphCompose` | 575 / 553 | Mechanical rename |
 | `\composeh` | `\morphComposeHead` | 10 / 1 | Mechanical rename |
 | `\composet` | `\morphComposeTail` | 10 / 1 | Mechanical rename |
-| `\into` | `\morphMono` | 6 / 14 | Mechanical rename |
+| `\into` | `\morphMono` | 6 / 14 | **Not done -- see below** |
 | `\onto` | `\morphEpi` | 38 / 15 | Mechanical rename |
 | `\funcname{X}` | `\morphName{X}` | 2151 / 2114 | Mechanical rename |
 | `\funcseqname{X}` | `\morphSeqName{X}` | 718 / 426 | Mechanical rename |
@@ -87,6 +87,25 @@ it again). **So every macro in this table is now a mechanical
 rename** — there is no separate "manual morphism-tagging" phase after
 all.
 
+## `\into` deliberately not renamed
+
+Every other macro in the table above was checked for a rendering
+match before renaming (`\catName`/`\morphName` via the consistency-
+check tool; `\compose`/`\composeh`/`\composet` by direct comparison of
+their default-style glyphs, `\circ`/`\odot`/`\cdot`, against the
+papers' own — identical). `\into`/`\onto` needed the same check since
+they wrap external symbols (`\mon`/`\epi`, both from Xy-pic) rather
+than defining their own glyph, and the check found a real mismatch:
+rendered side by side, `\onto`'s `\epi` is visually identical to
+`\morphEpi`'s `\twoheadrightarrow` (safe, renamed), but `\into`'s
+`\mon` is Xy-pic's own thin, small tail-arrow — **not** the same glyph
+as `\morphMono`'s `\hookrightarrow`. Renaming `\into`'s call sites
+would silently change what's printed on every monomorphism arrow in
+both papers. Left as-is (both the macro and all 20 combined call
+sites) pending a decision: change `\lsm_style_default:`'s `\morphMono`
+to render as `\mon` (matching what these papers actually use), or
+something else. Not blocking anything else in this migration.
+
 ## Changes
 
 Entries added as each pass actually happens, newest first. Each entry
@@ -94,5 +113,57 @@ names the macro(s), the papers touched, the site count, and anything
 non-mechanical that came up during the pass (an argument that didn't
 fit the expected pattern, a rendering check, etc.).
 
-*(No migration edits made yet — this file was set up in advance of
-the first pass.)*
+### 2026-09-01 -- first pass: everything except `\into`
+
+Both papers, all macros in the table above except `\into` (see
+above). Concretely, per paper: preamble gets `\usepackage{semantic-
+markup}`; the now-superseded legacy definitions (`\cat`, `\catname`,
+`\catseqname`, `\compose`, `\composeh`, `\composet`, `\onto`,
+`\funcname`/`\funcname:n`, `\funcseqname`/`\funcseqname:n`) are
+removed, each replaced with a one-line comment pointing here;
+`\into`'s definition is kept, with a comment explaining why it wasn't
+touched.
+
+Three real problems found and fixed along the way, each verified
+empirically before and after, not assumed:
+
+1. **Package/paper compatibility bug, fixed in the package.** Loading
+   `semantic-markup` alongside the papers' own `stix2` (a
+   comprehensive OpenType math font package) hit LaTeX's hard
+   "Too many symbol fonts declared" limit — `stix2` already defines
+   `\mathscr` and `\twoheadrightarrow`, the two things the package
+   needs from `mathrsfs`/`amssymb`, and stacking both symbol-font sets
+   overflowed the 16-slot table. Fixed in `LaTeX-Semantic-Markup`
+   itself (both `RequirePackage`s now guarded with `\ifdefined`); see
+   that repo's commit history, v0.5.0.
+2. **Pre-existing, unrelated compile bug, fixed in the papers.**
+   Independent of this migration: `amsthm` + `thmtools` + the
+   installed `cleveref` v0.21.4 reproducibly break
+   `\newtheorem{corollary}[theorem]{Corollary}` with a fatal
+   `Command \c@corollary already defined` error (isolated to a 5-line
+   minimal reproduction). Confirmed present on the *original,
+   unmodified* papers via `git stash` before touching anything.
+   `thmtools` is loaded in both papers but nothing from it
+   (`\declaretheorem`, `\listoftheorems`, a custom style) is ever
+   actually used (confirmed by grep) — removed from both preambles,
+   zero functional loss, both papers now compile cleanly end to end
+   (verified: two full `pdflatex` passes each, zero "Undefined control
+   sequence" errors, real content rendering correctly on inspection).
+3. **Rename-script gaps, fixed by hand.** The mechanical rename missed
+   two real TeX idioms it didn't account for: (a) a macro invoked as a
+   bare subscript target (`\Hom_\catName{C}`) parses differently for
+   an `xparse`-defined command than for the papers' own plain
+   `\newcommand`-defined ones — 6 such sites (all `\catName`, all
+   `\Hom_`/`\Set_`/`\Top_` constructions) needed explicit braces added
+   (`\Hom_{\catName{C}}`); (b) a single-letter argument given without
+   braces (`\catname C`, valid TeX for a one-character argument) isn't
+   matched by a brace-requiring rename regex — 4 such sites (`\catname
+   C`, 2 per paper) were converted to the braced form
+   (`\catName{C}`) by hand. A full sweep of both files afterward found
+   no further occurrences of any renamed macro outside a comment.
+
+Verified: both papers compile cleanly, two `pdflatex` passes each
+(needed for cross-references), zero errors, zero "Undefined control
+sequence", spot-checked several rendered pages (including dense
+category-theory notation) for correct typography. Regenerated
+`.pdf`s are part of this same change -- not committed independently.
