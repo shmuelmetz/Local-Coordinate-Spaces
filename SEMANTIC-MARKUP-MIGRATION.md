@@ -61,7 +61,7 @@ context.
 | `\compose` (bare or `[label]`) | `\morphCompose` | 575 / 553 | Mechanical rename |
 | `\composeh` | `\morphComposeHead` | 10 / 1 | Mechanical rename |
 | `\composet` | `\morphComposeTail` | 10 / 1 | Mechanical rename |
-| `\into` | `\morphMono` | 6 / 14 | **Not done -- see below** |
+| `\into` | `\morphMono` | 6 / 14 | Mechanical rename (second pass, see below) |
 | `\onto` | `\morphEpi` | 38 / 15 | Mechanical rename |
 | `\funcname{X}` | `\morphName{X}` | 2151 / 2114 | Mechanical rename |
 | `\funcseqname{X}` | `\morphSeqName{X}` | 718 / 426 | Mechanical rename |
@@ -87,7 +87,7 @@ it again). **So every macro in this table is now a mechanical
 rename** — there is no separate "manual morphism-tagging" phase after
 all.
 
-## `\into` deliberately not renamed
+## `\into` — resolved as a real semantic bug in the package, not a style choice
 
 Every other macro in the table above was checked for a rendering
 match before renaming (`\catName`/`\morphName` via the consistency-
@@ -97,14 +97,39 @@ papers' own — identical). `\into`/`\onto` needed the same check since
 they wrap external symbols (`\mon`/`\epi`, both from Xy-pic) rather
 than defining their own glyph, and the check found a real mismatch:
 rendered side by side, `\onto`'s `\epi` is visually identical to
-`\morphEpi`'s `\twoheadrightarrow` (safe, renamed), but `\into`'s
-`\mon` is Xy-pic's own thin, small tail-arrow — **not** the same glyph
-as `\morphMono`'s `\hookrightarrow`. Renaming `\into`'s call sites
-would silently change what's printed on every monomorphism arrow in
-both papers. Left as-is (both the macro and all 20 combined call
-sites) pending a decision: change `\lsm_style_default:`'s `\morphMono`
-to render as `\mon` (matching what these papers actually use), or
-something else. Not blocking anything else in this migration.
+`\morphEpi`'s `\twoheadrightarrow` (safe, renamed in the first pass),
+but `\into`'s `\mon` is Xy-pic's own thin, small tail-arrow — **not**
+the same glyph as `\morphMono`'s original `\hookrightarrow` default.
+First pass left `\into` unrenamed pending a decision, rather than
+either guess.
+
+**Resolution**: re-reading this paper's own Part II ("Conventions")
+section, quoted verbatim, settled it as a real semantic bug in the
+package, not a style preference to arbitrate: *"One with a hook
+($A \hookrightarrow B$) represents an **inclusion map**. One with a
+tail ($A \rightarrowtail B$) represents a **monomorphism**."* These
+are two genuinely distinct mathematical notions (every inclusion is a
+monomorphism, but not every monomorphism is an inclusion) that this
+paper deliberately gives two different dedicated symbols — and
+`semantic-markup`'s original `\morphMono` default was using the
+paper's own **inclusion** symbol, not its monomorphism one. Fixed in
+the package itself (`\lsm_morph_mono:` now renders as `\rightarrowtail`,
+an `amssymb` symbol confirmed visually near-identical to `\mon` — see
+`LaTeX-Semantic-Markup` commit `549b263`, v0.6.0), not by changing
+this paper. `\into` then renamed to `\morphMono` in both papers (20
+combined call sites) in a second pass, same day.
+
+Also removed in this same pass, unrelated to `\into` itself: a stale,
+auto-generated block of ~80 `% Package: ...` version-snapshot comments
+at the top of each file (a leftover compile-log capture from years
+ago, already including `thmtools`, which this migration's first pass
+had separately determined was unused and removed as actual code) — no
+longer accurate or useful, and not referenced by anything. Also
+corrected two places where the mechanical rename had (harmlessly, but
+confusingly) rewritten the word "`\into`" inside prose explaining the
+rename itself and inside a historical per-version changelog comment,
+into "`\morphMono`" — those now correctly describe what was actually
+done at the time, rather than retroactively renaming history.
 
 ## Changes
 
