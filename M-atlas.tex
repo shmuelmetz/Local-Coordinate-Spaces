@@ -30,7 +30,7 @@
 \usepackage{xparse} % loads expl3
 %See interface3.pdf
 \usepackage{xstring}
-\usepackage{semantic-markup}
+\usepackage{shmuelsemtex}
 
 \usepackage[cmtip,all,barr]{xy}
 %Remove when xybarr.tex bug fixed
@@ -64,7 +64,7 @@
 \newcommand \C {\mathrm{C}}
 
 % \cat, \catname, \catseqname removed 2026-09-01, superseded by
-% semantic-markup's \catName/\catSeqName (auto-detecting single-token/
+% shmuelsemtex's \catName/\catSeqName (auto-detecting single-token/
 % decorated/all-upper-case vs. genuine word, matching this exact
 % mathbf-vs-mathscr split -- all call sites renamed, verified against
 % every real argument via scripts/check_arg_consistency.py in that
@@ -83,7 +83,7 @@
 
 % Extended composition operators for function sequences -- \morphCompose,
 % \morphComposeHead, \morphComposeTail removed 2026-09-01, superseded by
-% semantic-markup's \morphCompose, \morphComposeHead, \morphComposeTail
+% shmuelsemtex's \morphCompose, \morphComposeHead, \morphComposeTail
 % (all call sites renamed accordingly). See SEMANTIC-MARKUP-MIGRATION.md.
 
 \DeclareMathOperator \defeq {\stackrel{\mathrm{def}}{=}}
@@ -123,7 +123,7 @@
 %\DeclareMathOperator* \ID {\mathbf{Id}}
 
 % \into (this paper's own macro, since renamed to \morphMono below)
-% removed 2026-09-01 (second pass): semantic-markup's \morphMono was
+% removed 2026-09-01 (second pass): shmuelsemtex's \morphMono was
 % originally \hookrightarrow, visually distinct from \mon (this
 % paper's own tail-arrow) -- re-reading this paper's own Conventions
 % section (Part II) settled it: the hook arrow is explicitly this
@@ -192,7 +192,7 @@
 \newcommand \Ob {\mathrm{Ob}}
 \DeclareMathOperator \objin {\stackrel{\Ob}{\in}}
 
-% \morphEpi removed 2026-09-01, superseded by semantic-markup's \morphEpi
+% \morphEpi removed 2026-09-01, superseded by shmuelsemtex's \morphEpi
 % (all call sites renamed) -- confirmed visually identical to \epi
 % (Xy-pic) first, unlike \morphMono/\mon below. See
 % SEMANTIC-MARKUP-MIGRATION.md.
@@ -296,9 +296,9 @@
 % --------------------------------------------------------------------
 % equant/uquant/setupquant/set/setupset/union/intersection/full/
 % maxfull/maximal/strict/Triv/seqname migrated into the
-% semantic-markup package 2026-09-15 (cleaned up: separater typo
+% shmuelsemtex package 2026-09-15 (cleaned up: separater typo
 % fixed, scratch variables properly scoped per macro family --
-% see semantic-markup.dtx Sec. "Quantifiers, sets, and
+% see shmuelsemtex.dtx Sec. "Quantifiers, sets, and
 % underset-variant renderers"). Public interface unchanged, so
 % no call site below needed to change. Id/ID/donotbreak/nobreaks/
 % pagecrefn stay here -- not semantic markup, deliberately not
