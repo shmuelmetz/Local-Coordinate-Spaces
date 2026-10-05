@@ -3,7 +3,7 @@
 Mathematical papers on local coordinate spaces, manifolds, fiber
 bundles, atlases, and morphisms between them.
 
-Author: Shmuel (Seymour J.) Metz
+Author: Seymour J. Metz (H: Shmuel שמואל בן לייביש ולאה)
 (<https://mason.gmu.edu/~smetz3>)
 
 ## Papers
