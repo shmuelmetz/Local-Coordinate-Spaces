@@ -294,17 +294,107 @@
 % Union and intersection
 
 % --------------------------------------------------------------------
-% equant/uquant/setupquant/set/setupset/union/intersection/full/
-% maxfull/maximal/strict/Triv/seqname migrated into the
+% equant/uquant/setupquant/set/setupset/union/intersection/
+% seqname migrated into the
 % shmuelsemtex package 2026-09-15 (cleaned up: separater typo
 % fixed, scratch variables properly scoped per macro family --
 % see shmuelsemtex.dtx Sec. "Quantifiers, sets, and
-% underset-variant renderers"). Public interface unchanged, so
+% sequence names"). Public interface unchanged, so
 % no call site below needed to change. Id/ID/donotbreak/nobreaks/
 % pagecrefn stay here -- not semantic markup, deliberately not
-% migrated.
+% migrated. full/maxfull/maximal/strict/Triv are specific to
+% these papers, so they are defined here, not in the package.
 
 \ExplSyntaxOn
+
+% Underset variants: each takes optional qualifiers (bare, *, **,
+% or text ending in a literal -, meaning compose this argument
+% onto the underset text) and typesets #2 with a small label
+% underneath.
+\tl_new:N \l_lcs_full_tmp_tl
+\tl_new:N \l_lcs_maximal_tmp_tl
+\tl_new:N \l_lcs_strict_tmp_tl
+
+\NewDocumentCommand{\full}{O{full} m}
+  { \lcs_show_full:nn {#1} {#2} }
+
+\cs_new_protected:Npn \lcs_show_full:nn #1 #2
+  {
+    \tl_set:Nn \l_lcs_full_tmp_tl {#1}
+    \str_if_eq:eeTF {\str_item:nn {#1} {-1}} {-}
+      { \tl_set:Nx \l_lcs_full_tmp_tl {{#1}full} }
+      {
+        \str_case:nn {#1}
+          {
+            {*}  {\tl_set:Nn \l_lcs_full_tmp_tl {(full,S-max-full,max-full)}}
+            {**} {\tl_set:Nn \l_lcs_full_tmp_tl {full~(S-max-full,max-full)}}
+          }
+      }
+    \underset {\textup{\l_lcs_full_tmp_tl}} {#2}
+  }
+
+\NewDocumentCommand{\maxfull}{O{max-full} m}
+  {
+    \lcs_maximal:nnnnnnn {max-full} {#1} {#2}
+      {full,max,max-full} {full,max}
+      {full~(max,max-full)} {full~(max)}
+  }
+
+\NewDocumentCommand{\maximal}{O{max} m}
+  { \lcs_maximal:nnnnnnn {max} {#1} {#2} {max} {} {max} {} }
+
+\cs_new_protected:Npn \lcs_maximal:nnnnnnn #1 #2 #3 #4 #5 #6 #7
+  {
+    \tl_set:Nn \l_lcs_maximal_tmp_tl {#2}
+    \str_if_eq:eeTF {\str_item:nn {#2} {-1}} {-}
+      { \tl_set:Nx \l_lcs_maximal_tmp_tl {{#2}#1} }
+      {
+        \str_case:nn {#2}
+          {
+            {*}   {\tl_set:Nn \l_lcs_maximal_tmp_tl {(#4)}}
+            {*x}  {\tl_set:Nn \l_lcs_maximal_tmp_tl {(#5)}}
+            {**}  {\tl_set:Nn \l_lcs_maximal_tmp_tl {#6}}
+            {**x} {\tl_set:Nn \l_lcs_maximal_tmp_tl {#7}}
+          }
+      }
+    \underset {\textup{\l_lcs_maximal_tmp_tl}} {#3}
+  }
+
+\NewDocumentCommand{\strict}{O{strict} m}
+  { \lcs_show_strict:nn {#1} {#2} }
+
+\cs_new_protected:Npn \lcs_show_strict:nn #1 #2
+  {
+    \tl_set:Nn \l_lcs_strict_tmp_tl {#1}
+    \str_if_eq:eeTF {\str_item:nn {#1} {-1}} {-}
+      { \tl_set:Nx \l_lcs_strict_tmp_tl {{#1}strict} }
+      {
+        \str_case:nn {#1}
+          {
+            {*}  {\tl_set:Nn \l_lcs_strict_tmp_tl {(semi-strict,strict)}}
+            {**} {\tl_set:Nn \l_lcs_strict_tmp_tl {semi-strict~(strict)}}
+          }
+      }
+    \underset {\textup{\l_lcs_strict_tmp_tl}} {#2}
+  }
+
+\NewDocumentCommand{\Triv}{o m}
+  { \lcs_triv:nn {#1} {#2} }
+
+\cs_new_protected:Npn \lcs_triv:nn #1 #2
+  {
+    \IfValueTF {#1}
+      {
+        \str_case:nnF {#1}
+          {
+            {full-submod-} {\underset{\mathbf{{#1}triv}}{#2}}
+            {full-}        {\underset{\mathbf{{#1}triv}}{#2}}
+            {submod-}      {\underset{\mathbf{{#1}triv}}{#2}}
+          }
+          { {\underset{#1\mathbf{triv}}{#2}} }
+      }
+      { {\underset{\mathbf{triv}}{#2}} }
+  }
 
 % Identity or inclusion function
 \NewDocumentCommand \Id {O{}}
