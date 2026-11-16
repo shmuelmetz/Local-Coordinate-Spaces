@@ -26,7 +26,7 @@
 %See interface3.pdf
 \RequirePackage{xstring}
 \RequirePackage{cjhebrew}
-\RequirePackage{shmuelsemtex}
+\RequirePackage{semanticmath}
 
 \RequirePackage[cmtip,all,barr]{xy}
 %Remove when xybarr.tex bug fixed
@@ -64,7 +64,7 @@
 \newcommand \C {\mathrm{C}}
 
 % \cat, \catname, \catseqname removed 2026-09-01, superseded by
-% shmuelsemtex's \catName/\catSeqName (auto-detecting single-token/
+% semanticmath's \catName/\catSeqName (auto-detecting single-token/
 % decorated/all-upper-case vs. genuine word, matching this exact
 % mathbf-vs-mathscr split -- all call sites renamed, verified against
 % every real argument via scripts/check_arg_consistency.py in that
@@ -83,7 +83,7 @@
 
 % Extended composition operators for function sequences -- \morphCompose,
 % \morphComposeHead, \morphComposeTail removed 2026-09-01, superseded by
-% shmuelsemtex's \morphCompose, \morphComposeHead, \morphComposeTail
+% semanticmath's \morphCompose, \morphComposeHead, \morphComposeTail
 % (all call sites renamed accordingly). See SEMANTIC-MARKUP-MIGRATION.md.
 
 \DeclareMathOperator \defeq {\stackrel{\mathrm{def}}{=}}
@@ -298,7 +298,7 @@
 % seqname migrated into the
 % shmuelsemtex package 2026-09-15 (cleaned up: separater typo
 % fixed, scratch variables properly scoped per macro family --
-% see shmuelsemtex.dtx Sec. "Quantifiers, sets, and
+% see semanticmath.dtx Sec. "Quantifiers, sets, and
 % sequence names"). Public interface unchanged, so
 % no call site below needed to change. Id/ID/donotbreak/nobreaks/
 % pagecrefn stay here -- not semantic markup, deliberately not

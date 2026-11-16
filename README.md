@@ -22,20 +22,20 @@ Author: Seymour J. Metz (H: Shmuel שמואל בן לייביש ולאה)
 
 The papers are typeset with pdfLaTeX and BibTeX. Both load
 `lcs-common.sty`, their shared preamble, which in turn loads the
-`shmuelsemtex` package from
+`semanticmath` package from
 [LaTeX-Semantic-Markup](https://github.com/shmuelmetz/LaTeX-Semantic-Markup).
 
 Both repositories sit side by side and share one directory for `.sty`
 files, `../texmf/tex/latex` (STYDIR):
 
 ```
-texmf/tex/latex/          shmuelsemtex.sty, lcs-common.sty (copied by make)
+texmf/tex/latex/          semanticmath.sty, lcs-common.sty (copied by make)
 LaTeX-Semantic-Markup/    package source
 Local-Coordinate-Spaces/  this repository
 ```
 
 ```sh
-make -C ../LaTeX-Semantic-Markup install   # shmuelsemtex.sty -> STYDIR
+make -C ../LaTeX-Semantic-Markup install   # semanticmath.sty -> STYDIR
 make                                       # lcs-common.sty -> STYDIR, then both papers
 ```
 
