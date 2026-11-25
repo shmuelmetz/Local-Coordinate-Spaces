@@ -28,11 +28,23 @@
 \RequirePackage{cjhebrew}
 \RequirePackage[style=lcs]{semanticmath}
 % The papers' style: the package default, but with the domain written
-% out in full, as the papers always had it (his decision, 2026-11-18).
+% out in full, as the papers always had it (his decision, 2026-11-18),
+% and the codomain and image likewise (the papers' former \range,
+% 2026-11-25).
 \DeclareSemanticStyle{lcs}{
-  base           = default,
-  morphDomain    = \operatorname{domain}(#1),
-  morphSeqDomain = \operatorname{\seqname{domain}}(#1),
+  base             = default,
+  morphDomain      = \operatorname{domain}(#1),
+  morphSeqDomain   = \operatorname{\seqname{domain}}(#1),
+  morphCodomain    = \operatorname{codomain}(#1),
+  morphSeqCodomain = \operatorname{\seqname{codomain}}(#1),
+  morphImage       = \operatorname{image}(#1),
+  morphSeqImage    = \operatorname{\seqname{image}}(#1),
+  morphDomainName      = \operatorname{domain},
+  morphSeqDomainName   = \operatorname{\seqname{domain}},
+  morphCodomainName    = \operatorname{codomain},
+  morphSeqCodomainName = \operatorname{\seqname{codomain}},
+  morphImageName       = \operatorname{image},
+  morphSeqImageName    = \operatorname{\seqname{image}},
 }
 
 \RequirePackage[cmtip,all,barr]{xy}

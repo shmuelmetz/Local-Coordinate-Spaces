@@ -187,7 +187,7 @@ pseudo-group, with some important differences.
 
 \item \hyperref[sec:sig]{Signature},
 \hyperref[def:Sigmacomm]{$\Sigma$-commutation} and related concepts.
-A signature is a means of characterising the domains and range of a
+A signature is a means of characterising the domains and codomain of a
 multi-variable function.
 $\Sigma$-commutation is a natuality condition for a sequence of functions.
 
@@ -310,8 +310,9 @@ of functions, e.g.,
 $\morphSeqName{f} \defeq (\morphName{f}_1, \morphName{f}_2)$.
 
 Bold lower case Latin letters will refer to sequence valued functions of
-sequences and tuple valued functions of tuples, e.g., $\Range$ yields
-the sequence of ranges of a sequence of functions.
+sequences and tuple valued functions of tuples, e.g., $\morphSeqCodomain$ yields
+the sequence of codomains of a sequence of functions, $\morphSeqImage$ yields
+the sequence of images of a sequence of functions.
 
 Bold upper case italic letters will refer to sequences or tuples, e.g.,
 $\seqname{A}=(x,y,z)$, to sets of them, to sets of topological spaces or
@@ -327,7 +328,7 @@ sequences of categories, e.g., \\*
 Fraktur will refer to topologies and to topology-valued functions, e.g.,
 $\Topology$.
 
-Functions have a range, domain and relation, not just a relation. Unless
+Functions have a codomain, domain and relation, not just a relation. Unless
 otherwise stated, they are assumed or proven to be continuous.
 
 Groups are assumed to be topological groups. The ambiguous notation
@@ -758,11 +759,11 @@ of functions. Then
 \morphSeqDomain{\seqname{S}} \defeq \bigl ( \morphDomain{s_\alpha}, \alpha \prec \Alpha \bigr )
 \end{equation}
 \begin{equation}
-\Range(\seqname{S}) \defeq \bigl ( \range(s_\alpha), \alpha \prec \Alpha \bigr )
+\morphSeqCodomain{\seqname{S}} \defeq \bigl ( \morphCodomain{s_\alpha}, \alpha \prec \Alpha \bigr )
 \end{equation}
 
 Let $\seqname{T} \defeq (t_\alpha, \alpha \prec \Alpha)$ be a sequence
-of functions with $\Range(\seqname{S}) = \morphSeqDomain{\seqname{T}}$. Then
+of functions with $\morphSeqCodomain{\seqname{S}} = \morphSeqDomain{\seqname{T}}$. Then
 their composition is the sequence
 $
   \seqname{T} \morphCompose[()] \seqname{S} \defeq
@@ -833,14 +834,14 @@ $i \in [1,3]$, be sequences of functions with
 \donotbreak
   {
     $
-      \morphSeqDomain{\morphSeqName{f}^2} = \Range(\morphSeqName{f}^1)
+      \morphSeqDomain{\morphSeqName{f}^2} = \morphSeqCodomain{\morphSeqName{f}^1}
     $
   }
 and
 \donotbreak
   {
     $
-      \morphSeqDomain{\morphSeqName{f}^3} = \Range(\morphSeqName{f}^2)
+      \morphSeqDomain{\morphSeqName{f}^3} = \morphSeqCodomain{\morphSeqName{f}^2}
     $.
   }
 Then
@@ -875,7 +876,7 @@ $.
 
 Let $\morphSeqName{f} \defeq (\morphName{f}_\alpha, \alpha \prec \Alpha)$
 be a sequence of functions, $\seqname{D} = \morphSeqDomain{\morphSeqName{f}}$ and \\*
-$\seqname{R} = \Range(\morphSeqName{f})$. Then $\morphSeqId[\seqname{R}]$ is a
+$\seqname{R} = \morphSeqCodomain{\morphSeqName{f}}$. Then $\morphSeqId[\seqname{R}]$ is a
 left $\morphCompose[()]$ identity for $\morphSeqName{f}$ and
 $\morphSeqId[\seqname{D}]$ is a right $\morphCompose[()]$ identity for
 $\morphSeqName{f}$.
@@ -885,7 +886,7 @@ $\morphSeqName{f}$.
 \begin{split}
   \morphSeqId[\seqname{R}] \morphCompose[()] \morphSeqName{f}
   & =
-  (\morphSeqId[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_\alpha,
+  (\morphSeqId[\morphCodomain{\morphName{f}_\alpha}] \morphCompose \morphName{f}_\alpha,
   \alpha \prec \Alpha)
 \\*
   & =
@@ -918,11 +919,11 @@ Let $\seqname{S} \defeq (s_n, n \in [1,N])$ be a tuple of functions. Then
 \morphSeqDomain{\seqname{S}} \defeq \bigl ( \morphDomain{s_n}, n \in [1,N] \bigr )
 \end{equation}
 \begin{equation}
-\Range(\seqname{S}) \defeq \bigl ( \range(s_n), n \in [1,N] \bigr )
+\morphSeqCodomain{\seqname{S}} \defeq \bigl ( \morphCodomain{s_n}, n \in [1,N] \bigr )
 \end{equation}
 
 Let $\seqname{T} \defeq (t_n, n \in [1,N])$ be a tuple of functions with
-$\Range(\seqname{S})=\morphSeqDomain{\seqname{T}}$,
+$\morphSeqCodomain{\seqname{S}}=\morphSeqDomain{\seqname{T}}$,
 Then their composition is the tuple
 $
   \seqname{T} \morphCompose[()] \seqname{S} \defeq
@@ -954,7 +955,7 @@ Then the following are tuple functioms
 Let $\morphSeqName{f} \defeq (\morphName{f}_n, n \in [1,N])$ be a tuple of
 functions,
 $\seqname{D} \defeq \morphSeqDomain{\morphSeqName{f}}$ and
-$\seqname{R} \defeq \Range(\morphSeqName{f})$. Then $\morphSeqId[\seqname{R}]$ is a
+$\seqname{R} \defeq \morphSeqCodomain{\morphSeqName{f}}$. Then $\morphSeqId[\seqname{R}]$ is a
 left $\morphCompose[()]$ identity for $\morphSeqName{f}$ and $\morphSeqId[\seqname{D}]$
 is a right $\morphCompose[()]$ identity for $\morphSeqName{f}$.
 
@@ -963,7 +964,7 @@ is a right $\morphCompose[()]$ identity for $\morphSeqName{f}$.
 \begin{split}
   \morphSeqId[\seqname{R}] \morphCompose[()] \morphSeqName{f}
   & =
-  (\morphId[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_n, n \in [1,N])
+  (\morphId[\morphCodomain{\morphName{f}_\alpha}] \morphCompose \morphName{f}_n, n \in [1,N])
 \\*
   & =
   (\morphName{f}_n, n \in [1,N])
@@ -999,14 +1000,14 @@ be tuples of functions with
 \donotbreak
   {
     $
-      \morphSeqDomain{\morphSeqName{f}^2} = \Range(\morphSeqName{f}^1)
+      \morphSeqDomain{\morphSeqName{f}^2} = \morphSeqCodomain{\morphSeqName{f}^1}
     $
   }
 and
 \donotbreak
   {
     $
-      \morphSeqDomain{\morphSeqName{f}^3} = \Range(\morphSeqName{f}^2)
+      \morphSeqDomain{\morphSeqName{f}^3} = \morphSeqCodomain{\morphSeqName{f}^2}
     $.
   }
 Then
@@ -1037,7 +1038,7 @@ $.
 Let $\seqname{M}^i \defeq (\morphSeqName{f}^i, o^i_1, o^i_2)$, $i=1,2$,
 be tuples such that each $\morphSeqName{f}^i$ is a sequence of functions
 or each $\morphSeqName{f}^i$ is a tuple of functions,
-$\Range(\morphSeqName{f}^1) = \morphSeqDomain{\morphSeqName{f}^2}$ and
+$\morphSeqCodomain{\morphSeqName{f}^1} = \morphSeqDomain{\morphSeqName{f}^2}$ and
 $0^1_2=o^2_1$. Then
 
 \begin{equation}
@@ -1059,7 +1060,7 @@ functions,
 \donotbreak
   {
     $
-      \Range(\morphSeqName{f}^i) =
+      \morphSeqCodomain{\morphSeqName{f}^i} =
       \morphSeqDomain{\morphSeqName{f}^{i+1}}
     $
   }
@@ -1097,7 +1098,7 @@ and \fullcref{lem:tupfunc}, we have
 \end{proof}
 
 Let $\seqname{D}^i \defeq \morphSeqDomain{\morphSeqName{f}^i}$ and
-$\seqname{R}^i \defeq \Range(\morphSeqName{f}^i)$. Then
+$\seqname{R}^i \defeq \morphSeqCodomain{\morphSeqName{f}^i}$. Then
 \begin{equation}
 (\morphSeqId[\seqname{R}^i], o^i_2, o^i_2) \morphCompose[A] \seqname{M}^i =
 \seqname{M}^i
@@ -1331,9 +1332,9 @@ $\seqname{Truthspace} \defeq (\truthspace, \truthcat)$.
 \end{definition}
 
 \begin{definition}[Constraint functions]
-A constraint function is a continuous function with range
+A constraint function is a continuous function with codomain
 $\truthspace$ or a model
-function with range $\seqname{Truthspace}$.
+function with codomain $\seqname{Truthspace}$.
 \end{definition}
 
 \begin{definition}[Sequence inclusion]
@@ -4596,7 +4597,7 @@ coordinate patch
 coordinate function
 \end{enumerate}
 \begin{remark}
-I consider it clearer to explicate the range, rather than the
+I consider it clearer to explicate the codomain, rather than the
 conventional usage of specifying only the domain and function or the
 minimalist usage of specifying only the function.
 \end{remark}
@@ -14250,7 +14251,7 @@ chart $(U, V, \phi)$ of $E$ in the coordinate space $C$ consists of
 coordinate function
 \end{enumerate}
 \begin{remark}
-I consider it clearer to explicate the range, rather than the
+I consider it clearer to explicate the codomain, rather than the
 conventional usage of specifying only the domain and function or the
 minimalist usage of specifying only the function.
 \end{remark}
@@ -17250,7 +17251,7 @@ $
 )
 $,
 \\*
-$G_{\seqname{XY},\morphName{t}} \defeq \range(\morphName{g})$
+$G_{\seqname{XY},\morphName{t}} \defeq \morphImage{\morphName{g}}$
 is the set of group elements associated with $\morphName{t}$
 and \\*
 $
