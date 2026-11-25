@@ -45,6 +45,9 @@
   morphSeqCodomainName = \operatorname{\seqname{codomain}},
   morphImageName       = \operatorname{image},
   morphSeqImageName    = \operatorname{\seqname{image}},
+  % restriction as the papers' former \restrictto printed it:
+  % f, a restriction mark, then domain[,codomain] as a subscript
+  morphRestrict = #1\negthickspace\restriction_{#2\ifx\relax#3\relax\else,#3\fi},
 }
 
 \RequirePackage[cmtip,all,barr]{xy}
@@ -232,12 +235,6 @@
        {\Cref{#1} on \cpageref{#1}}
        {\Cref{#1} (\nameref{#1}) on \cpageref{#1}}
    }
-
-\DeclareMathOperator \range {\mathrm{range}}
-
-\DeclareMathOperator \Range {\seqname{range}}
-
-\newcommand \restrictto {\negthickspace\restriction}
 
 \DeclareMathOperator \seqeq {\stackrel{()}{=}}
 

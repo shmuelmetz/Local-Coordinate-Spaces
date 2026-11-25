@@ -1276,8 +1276,8 @@ is $\morphName{f}$ considered as a function from $S$ to $T'$.
 Let $S'$ and $T'$ be spaces, $S \subseteq S'$, $T \subseteq T'$ be
 subspaces and $\morphName{f}' \maps S' \to T'$ a function such that
 $\morphName{f}'[S] \subseteq T$. Then $\morphName{f}' \maps S \to T$, also
-written $\morphName{f}' \restrictto_{S,T}$, is
-$\morphName{f}' \restrictto_S$ considered as a function from $S$ to
+written $\morphRestrict{\morphName{f}'}{S}[T]$, is
+$\morphRestrict{\morphName{f}'}{S}$ considered as a function from $S$ to
 $T$.
 
 Let $\seqname{S}^i \defeq (S^i_\alpha, \alpha \preceq \Alpha)$, $i-1,2$,
@@ -1285,12 +1285,12 @@ be a sequence of spaces, $\seqname{S}^1 \SUBSETEQ \seqname{S}^2$ and \linebreak
 $\morphName{f}^2 \maps \head(\seqname{S}^2) \to \tail(\seqname{S}^2)$ a
 function.
 $
-  \morphName{f}^2 \restrictto_{\head(\seqname{S}^1)} \defeq
-  \morphName{f}^2 \restrictto_{\bigtimes \head(\seqname{S}^1)}
+  \morphRestrict{\morphName{f}^2}{\head(\seqname{S}^1)} \defeq
+  \morphRestrict{\morphName{f}^2}{\bigtimes \head(\seqname{S}^1)}
 $.
 If \linebreak
 $
-  \morphName{f}^2 \restrictto_{\head(\seqname{S}^1)}
+  \morphRestrict{\morphName{f}^2}{\head(\seqname{S}^1)}
     [\bigtimes \head(\seqname{S}^1)]
   \subseteq \tail(\seqname{S}^1)
 $
@@ -1298,10 +1298,9 @@ then
 $ \morphName{f}^2 \maps \head(\seqname{S}^1) \to \tail(\seqname{S}^1)$,
 also written
 $
-  \morphName{f}^2 \restrictto_%
-    {\head(\seqname{S}^1),\tail(\seqname{S}^1)}
+  \morphRestrict{\morphName{f}^2}{\head(\seqname{S}^1)}[\tail(\seqname{S}^1)]
 $,
-is $\morphName{f}^2 \restrictto_{\head(\seqname{S}^1)}$ considered as a
+is $\morphRestrict{\morphName{f}^2}{\head(\seqname{S}^1)}$ considered as a
 function from $\bigtimes \head(\seqname{S}^1)$ to $\tail(\seqname{S}^1)$.
 \end{definition}
 
@@ -1408,7 +1407,7 @@ $B' \objin \catName{S} \subseteq B \objin \catName{S}$ and
     $\morphName{f}[A'] \subseteq B'$
   }}
 then
-$\morphName{f} \restrictto_{A'} \maps A' \to B'$ is a morphism.
+$\morphRestrict{\morphName{f}}{A'} \maps A' \to B'$ is a morphism.
 \label{mod:restriction}
 \item If $A' \objin \catName{S} \subseteq A \objin \catName{S}$ then
 the inclusion map $\morphIncl[{A'},{A}] \maps A' \hookrightarrow A$ is a
@@ -1806,10 +1805,10 @@ Since $A' \objin \catName{S}^i$ then $A'$ is open.
 Since $B' \objin \catName{S}^i$ then $B'$ is open.
 \item
 Since $\morphName{f} \maps A \to B$ is continuous then
-$\morphName{f} \restrictto_{A'} \maps A' \to B$ is continuous.
+$\morphRestrict{\morphName{f}}{A'} \maps A' \to B$ is continuous.
 \item
 Since $\morphName{f}[A'] \subseteq B'$ then
-$\morphName{f} \restrictto_{A',B'} \maps A' \to B'$ is well defined and
+$\morphRestrict{\morphName{f}}{A'}[B'] \maps A' \to B'$ is well defined and
 continuous, hence a morphism.
 \item If $A' \objin \catName{S}^i \subseteq A \objin \catName{S}^i$ then
 \begin{enumerate}
@@ -2135,8 +2134,8 @@ model subspace and $\morphName{f}'$ be a model function of
 $\seqname{S}'^1$ to $\seqname{S}'^2$ such that
 $\morphName{f}'[S^1] \subseteq S^2$. Then
 $\morphName{f} \maps \seqname{S}^1 \to \seqname{S}^2$, also written
-$\morphName{f}' \restrictto_{\seqname{S}^1,\seqname{S}^2}$, is
-$\morphName{f}' \restrictto_{\seqname{S}^1}$ considered as a model
+$\morphRestrict{\morphName{f}'}{\seqname{S}^1}[\seqname{S}^2]$, is
+$\morphRestrict{\morphName{f}'}{\seqname{S}^1}$ considered as a model
 function of $\seqname{S}^1$ to $\seqname{S}^2$.
 \end{definition}
 
@@ -2148,13 +2147,13 @@ spaces, $\seqname{S}^i \submod \seqname{S}'^i$ and
 $\morphName{f}' \maps S'^1 \to S'^2$ be a model function of
 $\seqname{S}'^1$ to $\seqname{S}'^2$.
 
-$\morphName{f} \defeq \morphName{f}' \restrictto_{S^1,S^2}$ is a model
+$\morphName{f} \defeq \morphRestrict{\morphName{f}'}{S^1}[S^2]$ is a model
 function of $\seqname{S}^1$ to $\seqname{S}^2$.
 
 \begin{proof}
 $\morphName{f}'$ is a model function by hypothesis.
 $\morphName{f}'$ is continuous by \cref{def:modfunc} above, so
-$\morphName{f} \defeq \morphName{f}' \restrictto_{S^1,S^2}$ is continuous.
+$\morphName{f} \defeq \morphRestrict{\morphName{f}'}{S^1}[S^2]$ is continuous.
 
 Let $U$ be a model neighborhood of $\seqname{S}^2$.
 $\seqname{S}^2 \submod \seqname{S}'^2$ by hypothesis, so
@@ -3907,10 +3906,7 @@ The result follows from \pagecref{def:sigop} and
     \morphName{F}^1_\gamma
 \\*
   & =
-    \morphName{F}^2_\gamma \restrictto_%
-      {
-        \bigtimes \underline{\overset{\sigma_\gamma}{\seqname{S}^1}},
-      }
+    \morphRestrict{\morphName{F}^2_\gamma}{\bigtimes \underline{\overset{\sigma_\gamma}{\seqname{S}^1}}}
 \\*
   & =
     \morphName{F}^2_\gamma \morphCompose
@@ -4382,11 +4378,7 @@ strict prestructure morphism from $\seqname{P}$ to $\seqname{P}$.
 $\seqname{S} \SUBSETEQ \seqname{S}$ and
 $
   \morphName{F}_\gamma =
-  \morphName{F}_\gamma \restrictto_%
-    {
-      \bigtimes \underline{\overset{\sigma_\gamma}{\seqname{S}}},
-      \tail \left ( \overset{\sigma_\gamma}{\seqname{S}} \right )
-    }
+  \morphRestrict{\morphName{F}_\gamma}{\bigtimes \underline{\overset{\sigma_\gamma}{\seqname{S}}}}[\tail \left ( \overset{\sigma_\gamma}{\seqname{S}} \right )]
 $.
 
 Each
@@ -4738,13 +4730,13 @@ Let $(U, V, \phi)$ be an m-chart of
 $\seqname{E} \defeq (E, \catName{E})$ in the coordinate space
 $(C,\catName{C})$ and $U' \subseteq U$ a nonvoid model neighborhood of
 $\seqname{E}$. Then
-$(U', V', \phi') \defeq (U', \phi[U'], \phi \restrictto_{U',V'})$ is a
+$(U', V', \phi') \defeq (U', \phi[U'], \morphRestrict{\phi}{U'}[V'])$ is a
 subchart of $(U, V, \phi)$.
 
 Let $(U, V, \phi)$ be an m-chart of $E$ in the coordinate
 space $(C,\catName{C})$ and $U' \subseteq U$ an open set of
 $E$. Then
-$(U', V', \phi') \defeq (U', \phi[U'], \phi \restrictto_{U',V'})$
+$(U', V', \phi') \defeq (U', \phi[U'], \morphRestrict{\phi}{U'}[V'])$
 is a subchart of $(U, V, \phi)$.
 
 $(U', V', \phi')$ is a subchart of $(U, V, \phi)$ at  $x$ iff
@@ -4774,8 +4766,8 @@ homeomorphism,
   }}
 is a model neighborhood.
 \item Since $\phi$ and $\phi^{-1}$ are model functions, so are
-$\phi' = \phi \restrictto_{U',V'}$ and
-$\phi'^{-1} = \phi^{-1} \restrictto_{V',U'}$. Thus $\phi'$ is a model
+$\phi' = \morphRestrict{\phi}{U'}[V']$ and
+$\phi'^{-1} = \morphRestrict{\phi^{-1}}{V'}[U']$. Thus $\phi'$ is a model
 homeomorphism.
 \end{enumerate}
 \end{proof}
@@ -4791,7 +4783,7 @@ $U'$, $V'$ and $\phi'$ satisfy the conditions of the definition of an m-chart:
 \item $U'$ is open by the definition of subchart.
 \item Since $\phi$ is a homeomorphism and $U'$ is open, $V'=\phi[U']$ is open.
 \item Since $\phi$ is a homeomorphism that maps open sets into model
-neighborhoods, $\phi \restrictto_{U',V'}$ is a homeomorphism that maps
+neighborhoods, $\morphRestrict{\phi}{U'}[V']$ is a homeomorphism that maps
 open sets into model neighborhoods.
 \end{enumerate}
 \end{proof}
@@ -5365,7 +5357,7 @@ $
   \maps \phi_1[U_1 \cap U_2] \toiso \phi_2[U_1 \cap U_2]
 $
 is a homeomorphism.  It remains to show that
-$\phi_2 \morphCompose \phi^{-1}_1 \restrictto_{\phi_1[U_1 \cap U_2]}$ is a
+$\phi_2 \morphCompose \morphRestrict{\phi^{-1}_1}{\phi_1[U_1 \cap U_2]}$ is a
 model homeomorphism, Let
 $(U_\alpha,V_\alpha,\phi_\alpha)$, $\alpha \prec \Alpha$, be charts in
 $\seqname{A}$ such that
@@ -7155,7 +7147,7 @@ function such that
 $\morphName{f}'_1[\seqname{C}^1] \subseteq \seqname{C}^2$ and
 $
   \morphName{f}_1 \defeq
-  \morphName{f}'_1 \restrictto_{\seqname{C}^1,\seqname{C}^2}
+  \morphRestrict{\morphName{f}'_1}{\seqname{C}^1}[\seqname{C}^2]
 $
 is a model function
 
@@ -7622,7 +7614,7 @@ function such that
 $\morphName{f}'_1[\seqname{C}^1] \subseteq \seqname{C}^2$ and
 $
   \morphName{f}_1 \defeq
-  \morphName{f}'_1 \restrictto_{\seqname{C}^1,\seqname{C}^2}
+  \morphRestrict{\morphName{f}'_1}{\seqname{C}^1}[\seqname{C}^2]
 $
 is a model function
 
@@ -7869,12 +7861,12 @@ $\morphName{f}_1[V'^1] \subseteq V'^2$ and
 $\morphName{g}_1[V'^1] \subseteq V'^2$.
 
 $
-  \morphName{f}_0 \restrictto{U'^1,U'^2} =
-  \morphName{g}_0 \restrictto{U'^1,U'^2}
+  \morphRestrict{\morphName{f}_0}{U'^1}[U'^2] =
+  \morphRestrict{\morphName{g}_0}{U'^1}[U'^2]
 $
 is a morphism of $\seqname{E}^2$ by \pagecref{lem:modMmorph}.
 $
-  \morphName{f}_1 \restrictto{V'^1,V'^2} =
+  \morphRestrict{\morphName{f}_1}{V'^1}[V'^2] =
 $
 is a morphism of $\seqname{C}^2$ by \cref{lem:modMmorph}.
 
@@ -9261,10 +9253,10 @@ $U'^1 = I$ is a model neighborhood of $\seqname{E}^1$.
 Since $\phi^1$ is a model isomorphism, $V'^1$ is a model neighborhood of
 $\seqname{C}^1$.
 \item
-$\phi^1 \restrictto_{U'^1,V'^1}$ is a model isomorphism of $\seqname{C}^1$.
+$\morphRestrict{\phi^1}{U'^1}[V'^1]$ is a model isomorphism of $\seqname{C}^1$.
 \item
 Since $\seqname{A}^i$ is maximal,
-$(U'^1,V'^1,\phi^1 \restrictto_{U'^1,V'^1})$ is an m-chart of
+$(U'^1,V'^1,\morphRestrict{\phi^1}{U'^1}[V'^1])$ is an m-chart of
 $\seqname{E}^1$ in the coordinate space $\seqname{C}^1$.
 
 \item
@@ -9280,10 +9272,10 @@ $\seqname{C}^2$.
 Since $\seqname{C}^1 \submod \seqname{C}^2$, $\hat{V}'^2 = V'^1$ is a
 model neighborhood of $\seqname{C}^2$.
 \item
-$\phi^1 \restrictto_{U'^2,\hat{V}'^2}$ is a model isomorphism of
+$\morphRestrict{\phi^1}{U'^2}[\hat{V}'^2]$ is a model isomorphism of
 $\seqname{C}^2$.
 \item
-$(U'^2,\hat{V}'^2,\phi^1 \restrictto_{U'^2,\hat{V}'^2})$ is an m-chart
+$(U'^2,\hat{V}'^2,\morphRestrict{\phi^1}{U'^2}[\hat{V}'^2])$ is an m-chart
 of $\seqname{E}^2$ in the coordinate space $\seqname{C}^2$.
 \item
 $
@@ -14138,7 +14130,7 @@ $\Triv[\Ck-]{C^i}$ is a $\Ck$ linear model space.
 $A' \objin \catName{C}^i \subseteq A \objin \catName{C}^i$,
 $B' \objin \catName{C}^i \subseteq B \objin \catName{C}^i$
 and $\morphName{f}[A'] \subseteq B'$ then
-$\morphName{f} \restrictto_{A'} \maps A' \to B'$ is $\Ck$ and thus a
+$\morphRestrict{\morphName{f}}{A'} \maps A' \to B'$ is $\Ck$ and thus a
 morphism.
 
 \item If $A' \objin \catName{C}^i \subseteq A \objin \catName{C}^i$
@@ -14278,7 +14270,7 @@ $U$ to $V$ in either case.
 \label{def:Ck-subchart}
 Let $(U, V, \phi)$ be a $\Ck$ chart of $E$ in the coordinate space $C$
 and $U'$ be a nonvoid open subset of $U$. Then
-$(U', V', \phi') \defeq (U', \phi[U'], \phi \restrictto_{U',V'})$
+$(U', V', \phi') \defeq (U', \phi[U'], \morphRestrict{\phi}{U'}[V'])$
 is a subchart of $(U, V, \phi)$.
 
 By abuse of language we will write $(U', V', \phi)$ for
@@ -14307,7 +14299,7 @@ and thus a model neighborhood of $\Triv[\Ck-]{C}$.
 $U'$ is a model neighborhood of $\Triv{E}$ iff it is an open set of $E$.
 \item
 $\phi$ is a homeomorphism, so
-$\phi \restrictto_{U'} \maps U' \toiso \phi[U']$ is also.
+$\morphRestrict{\phi}{U'} \maps U' \toiso \phi[U']$ is also.
 \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -14335,7 +14327,7 @@ coordinate space $C$. Then $(U, V, \phi)$ is $\Ck$ compatible with
 $(U', V', \phi')$ iff either
 \begin{enumerate}
 \item $U$ and $U'$ are disjoint
-\item The transition function $\morphName{t}=\phi' \morphCompose \phi^{-1} \restrictto_{\phi[U \cap U']}$
+\item The transition function $\morphName{t}=\phi' \morphCompose \morphRestrict{\phi^{-1}}{\phi[U \cap U']}$
 is a $\Ck$ diffeomorphism.
 \end{enumerate}
 \end{definition}
@@ -14352,9 +14344,9 @@ It suffices to prove the implication in only one direction.
 \begin{enumerate}
 \item $U \cap U' = U' \cap U$.
 \item Since the transition function
-$\morphName{t}=\phi' \morphCompose \phi^{-1} \restrictto_{\phi[U \cap U']}$
+$\morphName{t}=\phi' \morphCompose \morphRestrict{\phi^{-1}}{\phi[U \cap U']}$
 is a  $\Ck$ diffeomorphism of $C$, so is
-$\morphName{t}^{-1} = \phi \morphCompose \phi'^{-1} \restrictto_{\phi'[U \cap U']}$.
+$\morphName{t}^{-1} = \phi \morphCompose \morphRestrict{\phi'^{-1}}{\phi'[U \cap U']}$.
 \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -14373,11 +14365,11 @@ compatible with $(U'_2, V'_2, \phi'_2)$. Otherwise, the transition
 function
 $
   t^1_2 \defeq
-  \phi_2 \morphCompose \phi^{-1}_1 \restrictto_{\phi_1[U_1 \cap U_2]}
+  \phi_2 \morphCompose \morphRestrict{\phi^{-1}_1}{\phi_1[U_1 \cap U_2]}
 $
 is a $\Ck$ diffeomorphism and hence
 $
-  t^1_2 \restrictto_{\phi_1[U'_1 \cap U'_2]} \maps
+  \morphRestrict{t^1_2}{\phi_1[U'_1 \cap U'_2]} \maps
   \phi_1[U'_1 \cap U'_2] \toiso
   \phi_2[U'_1 \cap U'_2]
 $
@@ -14528,9 +14520,9 @@ $\seqname{C}_2 = (U_2, V_2, \phi_2)$ another chart in $\seqname{A}$.
 \item If $U' \cap U_2 = \emptyset$ then $\seqname{C}'$ is $\Ck$
 compatible with $\seqname{C}_2$.
 \item Otherwise the transition function
-$t^1_2 \defeq \phi_2 \morphCompose \phi^{-1}_1 \restrictto_{\phi_1[U_1 \cap U_2]}$
+$t^1_2 \defeq \phi_2 \morphCompose \morphRestrict{\phi^{-1}_1}{\phi_1[U_1 \cap U_2]}$
 is a $\Ck$ diffeomorphism and thus
-$t^1_2 \restrictto_{\phi_1[U' \cap U_2]}$ is a $\Ck$ diffeomorphism.
+$\morphRestrict{t^1_2}{\phi_1[U' \cap U_2]}$ is a $\Ck$ diffeomorphism.
 \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -14546,19 +14538,19 @@ $(U_2,V_2,\phi_2)$ in the coordinate space $C$.
 \begin{proof}
 If $U_1 \cap U_2 = \emptyset$ then $(U_1,V_1,\phi_1)$ is
 $\Ck$ compatible with $(U_2,V_2,\phi_2)$. Otherwise,
-$\phi_2 \morphCompose \phi^{-1}_1 \restrictto_{\phi_1[U_1 \cap U_2]} \maps
+$\phi_2 \morphCompose \morphRestrict{\phi^{-1}_1}{\phi_1[U_1 \cap U_2]} \maps
 \phi_1[U_1 \cap U_2] \toiso \phi_2[U_1 \cap U_2]$
 is a homeomorphism.  It remains to show that
-$\phi_2 \morphCompose \phi^{-1}_1 \restrictto_{\phi_1[U_1 \cap U_2]}$
+$\phi_2 \morphCompose \morphRestrict{\phi^{-1}_1}{\phi_1[U_1 \cap U_2]}$
 is a $\Ck$ diffeomorphism.
 Let $(U'_\alpha,V'_\alpha,\phi'_\alpha)$, $\alpha \prec \Alpha$, be
 charts in $\seqname{A}$ such that
 $U_1 \cap U_2 \subseteq \union[\alpha \prec \Alpha]{U'_\alpha}$ and
 $U_1 \cap U_2 \cap U'_\alpha \neq \emptyset$, $\alpha \prec \Alpha$.
 Since the charts are $\Ck$ compatible with $(U'_\alpha,V'_\alpha,\phi'_\alpha)$,
-$\phi_2 \morphCompose \phi'^{-1}_\alpha \restrictto_{U_1 \cap U_2 \cap U'_\alpha}$
+$\phi_2 \morphCompose \morphRestrict{\phi'^{-1}_\alpha}{U_1 \cap U_2 \cap U'_\alpha}$
 and
-$\phi'_\alpha \morphCompose \phi^{-1}_1 \restrictto_{U_1 \cap U_2 \cap U'_\alpha}$
+$\phi'_\alpha \morphCompose \morphRestrict{\phi^{-1}_1}{U_1 \cap U_2 \cap U'_\alpha}$
 are $\Ck$ diffeomorphisms and thus
 $\phi_2 \morphCompose \phi^{-1}_1 = \phi_2 \morphCompose \phi'^{-1}_\alpha \morphCompose \phi'_\alpha \morphCompose \phi^{-1}_1$
 is a $\Ck$ diffeomorphism.
@@ -18303,7 +18295,7 @@ $\phi$ preserves fibers by hypothesis.
 Let $(U, V \times Y, \phi)$ be a $Y$-$\pi$-bundle chart of $E$ in the
 coordinate space $X \times Y$ and $v \in V$. Then
 
-$\pi \restrictto_U$ is a surjection.
+$\morphRestrict{\pi}{U}$ is a surjection.
 \begin{proof}
 Let $v \in V$, $y \in Y$ and
 $u \defeq \phi^{-1} \bigl ( (v,y) \bigr ) \in U$. Then $\pi(u) = v$.
@@ -18321,7 +18313,7 @@ $\setBuild{v} \times Y$, which is homeomorphic to $Y$.
 Let $(U, V \times Y, \phi)$ be a $Y$-$\pi$-bundle chart of $E$ in the
 coordinate space $X \times Y$ and $U'$ be a nonvoid open subset of $U$.
 Then \\*
-$(U', V' \times Y, \phi') \defeq (U', \phi[U'], \phi \restrictto_{U'})$
+$(U', V' \times Y, \phi') \defeq (U', \phi[U'], \morphRestrict{\phi}{U'})$
 is a subchart of $(U, V \times Y, \phi)$.
 \end{definition}
 
@@ -18335,9 +18327,9 @@ $(U', V' \times Y, \phi')$ satisfies the conditions of \cref{def:Ypichart}:
 \begin{enumerate}
 \item $U' \subseteq E$ is open.
 \item $\phi[U']$ os open since $\phi$ is a homeomorphism.
-\item $\phi \restrictto_{U'} \maps U' \to V' \times Y$ is the
+\item $\morphRestrict{\phi}{U'} \maps U' \to V' \times Y$ is the
 restriction of a homeomorphism and thus a homeomorphism.
-$\phi \restrictto_{U'}$ preserves fibers because $\phi$ does.
+$\morphRestrict{\phi}{U'}$ preserves fibers because $\phi$ does.
 \end{enumerate}
 \end{proof}
 \end{lemma}
@@ -18358,7 +18350,7 @@ The transition function
 $
   \morphName{t}^\mu_\nu \defeq
     \phi^\mu \morphCompose
-    {\phi^\nu}^{-1} \restrictto_{\phi^\nu[U^\mu \cap U^\nu]}
+    \morphRestrict{{\phi^\nu}^{-1}}{\phi^\nu[U^\mu \cap U^\nu]}
 $
 is generated by the group action, i.e., there is a continuous function
 $
@@ -18407,7 +18399,7 @@ If the charts are $G$-$\rho$-compatible then the transition function \\*
 $
   \morphName{t}^1_2 \defeq
     \phi^1 \morphCompose
-    {\phi^2}^{-1} \restrictto_{\phi^2[U^1 \cap U^2]}
+    \morphRestrict{{\phi^2}^{-1}}{\phi^2[U^1 \cap U^2]}
 $
 is generated by the group action, i.e., there is a continuous function
 $\morphName{g}^1_2 \maps \pi_1[\phi^2[U^1 \cap U^2]] \to G$
@@ -18467,12 +18459,12 @@ the transition function \\*
 {{
   $
     t^1_2 \defeq
-    \phi^1 \morphCompose \phi^{2-1} \restrictto_{\phi^2[U^1 \cap U^2]}
+    \phi^1 \morphCompose \morphRestrict{\phi^{2-1}}{\phi^2[U^1 \cap U^2]}
   $
 }}
 is generated by the group action and hence \\*
 $
-  t^1_2 \restrictto_{\phi^2[U'^1 \cap U'^2]}
+  \morphRestrict{t^1_2}{\phi^2[U'^1 \cap U'^2]}
   \maps
   \phi^2[U'^1 \cap U'^2]
   \toiso
@@ -18782,7 +18774,7 @@ $\seqname{C} \defeq (X \times Y, \catName{XY})$ a $G$-$\rho$ model space
 of $X \times Y$ and $\seqname{A}$ an m-atlas of $E$ in the coordinate
 model space $\seqname{C}$.  Then there exists a unique function
 $\pi \maps \seqname{E} \to X$ such that for any chart $(U, V, \phi)$ in
-$\seqname{A}$, $\pi \restrictto_U = \pi_1 \morphCompose \phi$.   If
+$\seqname{A}$, $\morphRestrict{\pi}{U} = \pi_1 \morphCompose \phi$.   If
 $\seqname{A}$ is full then $\pi$ is surjective.
 
 \begin{proof}
@@ -19134,7 +19126,7 @@ be a chart at $u^i$. Let the chart
 \nobreaks
   {{
     $
-      (U'^1, V'^1 \times Y, \phi^1 \restrictto^{U'^1}_{V'^1 \times Y})
+      (U'^1, V'^1 \times Y, \morphRestrict{\phi^1}{U'^1}[V'^1 \times Y])
       \in \seqname{A}^1
     $
   }}
@@ -19145,7 +19137,7 @@ at $u^1$, the open set $U'^2 \subseteq U^2$ and the chart
       (
         U'^2,
         \hat{V}'^2 \times Y,
-        \phi'^2 \restrictto^{U'^2}_{\hat{V}'^2 \times Y}
+        \morphRestrict{\phi'^2}{U'^2}[\hat{V}'^2 \times Y]
       )
       \in \seqname{A}^2
     $
@@ -20038,7 +20030,7 @@ $ and every $(U, V, \phi) \in \seqname{A}^\alpha$,
   {{
     $
       \pi_1 \morphCompose \phi =
-      \pi(\seqname{A}^\alpha) \restrictto_U
+      \morphRestrict{\pi(\seqname{A}^\alpha)}{U}
     $
   }}
 
