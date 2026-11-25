@@ -436,7 +436,7 @@ whose $\Hom$ is
 \Hom_{(\seqname{O}, \seqname{M}, C)}
   (o_1 \in \seqname{O}, o_2 \in \seqname{O})
 \defeq
-\set
+\setBuild
   {
     (
       \morphSeqName{f},
@@ -539,48 +539,48 @@ $\catName{S}$ or in $\catName{T}$.
 
 \begin{definition}[Identity]
 \label{def:Id}
-$\Id[S]$ is the identity function on the space $S$,
+$\morphId[S]$ is the identity function on the space $S$,
 
-$\Id[o]$ is the
+$\morphId[o]$ is the
 identity morphism for the object $o$\footnote{
 The object is often expressed as a tuple, e.g.,
-$\Id[{{(\seqname{A}, \seqname{B})}}]$ is the identity morphism for the
+$\morphId[{{(\seqname{A}, \seqname{B})}}]$ is the identity morphism for the
 object $(\seqname{A}, \seqname{B})$
 },
 
-$\Id[U,V]$, for $U \subseteq V$, is the inclusion map\footnote{
+$\morphIncl[U,V]$, for $U \subseteq V$, is the inclusion map\footnote{
 $U$ need not have the subspace topology.
 }.
-$\Id[{{U,V}}]$ is synonymous with $\Id[U,V]$.
+$\morphId[{{U,V}}]$ is synonymous with $\morphIncl[U,V]$.
 
-$\Id[\catName{C}]$ is the identity functor on the category $\catName{C}$.
+$\morphId[\catName{C}]$ is the identity functor on the category $\catName{C}$.
 
-$\ID[\seqname{S}^i]$, $i=1,2$, is the sequence of identity functions
+$\morphSeqId[\seqname{S}^i]$, $i=1,2$, is the sequence of identity functions
 for the elements of the sequence
 $\seqname{S}^i \defeq (\seqname{S}^i_\alpha,~ \alpha \prec \Alpha)$. Let
 $\seqname{S}^1 \SUBSETEQ \seqname{S}^2$. Then
-$\ID[\seqname{S}^1,\seqname{S}^2]$ is the sequence of inclusion maps
+$\morphSeqIncl[\seqname{S}^1,\seqname{S}^2]$ is the sequence of inclusion maps
 $
   \biggl (
-    \Id[\seqname{S}^1_\alpha,\seqname{S}^2_\alpha],~ \alpha \prec \Alpha
+    \morphIncl[\seqname{S}^1_\alpha,\seqname{S}^2_\alpha],~ \alpha \prec \Alpha
   \biggr )
 $
 for the elements of the sequences $\seqname{S}^i$.
-$\ID[{{\seqname{S}^1,\seqname{S}^2}}]$ is synonymous with
-$\ID[\seqname{S}^1,\seqname{S}^2]$.  A similar definition applies for
+$\morphSeqId[{{\seqname{S}^1,\seqname{S}^2}}]$ is synonymous with
+$\morphSeqIncl[\seqname{S}^1,\seqname{S}^2]$.  A similar definition applies for
 tuples, except in a context where they are treated as objects of a
 category.
 
-$\ID[{{(A \dots Z)}}]$ is the tuple of identity maps
-$\bigl (\Id[A], \dots, \Id[Z] \bigr)$.
-$\ID[{(A^1, \dots, Z^1)},{(A^2, \dots, Z^2)}]$ is the tuple of inclusion maps
-$\biggl ( \Id[A^1, A^2], \dots, \Id[Z^1, Z^2] \biggr )$.
+$\morphSeqId[{{(A \dots Z)}}]$ is the tuple of identity maps
+$\bigl (\morphId[A], \dots, \morphId[Z] \bigr)$.
+$\morphSeqIncl[{(A^1, \dots, Z^1)},{(A^2, \dots, Z^2)}]$ is the tuple of inclusion maps
+$\biggl ( \morphIncl[A^1, A^2], \dots, \morphIncl[Z^1, Z^2] \biggr )$.
 \end{definition}
 
 \begin{definition}[Images]
-$\morphName{f} [U] \defeq \set { {\morphName{f}(x)} }[x \in U]$ is the
+$\morphName{f} [U] \defeq \setBuild { {\morphName{f}(x)} }[x \in U]$ is the
 image of $U$ under $\morphName{f}$ and \\*
-$\morphName{f}^{-1} [V] \defeq \set {x}[\morphName{f}(x) \in V]$ is the
+$\morphName{f}^{-1} [V] \defeq \setBuild {x}[\morphName{f}(x) \in V]$ is the
 inverse image of $V$ under $\morphName{f}$.
 
 \begin{remark}
@@ -613,7 +613,7 @@ $\morphName{f} \maps V^1 \to V^2 \arin \catName{T}$.
 \label{lem:topInc}
 Let $\catName{T}$ be a full topological category,
 $S^i \objin \catName{T}$, $i=1,2$, and $S^1 \subsp S^2$. Then
-$\Id[S^1,S^2]$ is a morphism of $\catName{T}$
+$\morphIncl[S^1,S^2]$ is a morphism of $\catName{T}$
 
 \begin{proof}
 \begin{enumerate}
@@ -628,13 +628,13 @@ $V^2 \defeq S^2 \objin \catName{T}$ by hypothesis.
 $V^i \subsp U^i$,
 
 \item
-$\morphName{f} \defeq \Id[S^2] \maps U^1 \to U^2 \arin \catName{T}$.
+$\morphName{f} \defeq \morphId[S^2] \maps U^1 \to U^2 \arin \catName{T}$.
 
 \item
 $\morphName{f}[V^1] = V^1 \subsp V^2$.
 \end{enumerate}
 
-Thus $\Id[S^1,S^2] = \morphName{f} \maps V^1 \to V^2 \arin \catName{T}$
+Thus $\morphIncl[S^1,S^2] = \morphName{f} \maps V^1 \to V^2 \arin \catName{T}$
 by \cref{def:topcat}.
 \end{proof}
 \end{lemma}
@@ -713,9 +713,9 @@ morphism of $\catName{T}^3$.
 \label{cor:topLocal}
 Let $\catName{T}^i$, $i=1,2$, be a full topological category,
 $\catName{T}^i \subcat[full-] \catName{T}^{i+1}$,
-$S^i \objin \catName{T}^i$ and $S^1 \subseteq S^2$. Then $\Id[S^1,S^2]$
+$S^i \objin \catName{T}^i$ and $S^1 \subseteq S^2$. Then $\morphIncl[S^1,S^2]$
 is a local $\catName{T}^1$-$\catName{T}^2$ morphism of $S^1$ to $S^2$
-and $\Id[{S^i}]$ is a local $\catName{T}$ morphism
+and $\morphId[{S^i}]$ is a local $\catName{T}$ morphism
 of $S^i$ to $S^i$.
 
 \begin{proof}
@@ -723,9 +723,9 @@ $S^1 \objin \catName{T}^2$ because $S^1 \objin \catName{T}^1$ and
 $\catName{T}^1 \subcat \catName{T}^2$,
 $S^2 \objin \catName{T}^2$ by hypothesis and \\*
 $S^1 \subseteq S^2$ by hypothesis, so
-$\Id[S^1,S^2] \arin \catName{T}^2$ by \cref{lem:topInc}.
+$\morphIncl[S^1,S^2] \arin \catName{T}^2$ by \cref{lem:topInc}.
 
-$\Id[S^i] \defeq \Id[S^i,S^i]$.
+$\morphId[S^i] \defeq \morphIncl[S^i,S^i]$.
 \end{proof}
 \end{corollary}
 
@@ -733,14 +733,14 @@ $\Id[S^i] \defeq \Id[S^i,S^i]$.
 Let $\seqname{S} \defeq (s_\alpha, \alpha \prec \Alpha)$ be a sequence
 of functions. Then
 \begin{equation}
-\Domain(\seqname{S}) \defeq \bigl ( \domain(s_\alpha), \alpha \prec \Alpha \bigr )
+\morphSeqDomain{\seqname{S}} \defeq \bigl ( \morphDomain{s_\alpha}, \alpha \prec \Alpha \bigr )
 \end{equation}
 \begin{equation}
 \Range(\seqname{S}) \defeq \bigl ( \range(s_\alpha), \alpha \prec \Alpha \bigr )
 \end{equation}
 
 Let $\seqname{T} \defeq (t_\alpha, \alpha \prec \Alpha)$ be a sequence
-of functions with $\Range(\seqname{S}) = \Domain(\seqname{T})$. Then
+of functions with $\Range(\seqname{S}) = \morphSeqDomain{\seqname{T}}$. Then
 their composition is the sequence
 $
   \seqname{T} \morphCompose[()] \seqname{S} \defeq
@@ -811,14 +811,14 @@ $i \in [1,3]$, be sequences of functions with
 \donotbreak
   {
     $
-      \Domain(\morphSeqName{f}^2) = \Range(\morphSeqName{f}^1)
+      \morphSeqDomain{\morphSeqName{f}^2} = \Range(\morphSeqName{f}^1)
     $
   }
 and
 \donotbreak
   {
     $
-      \Domain(\morphSeqName{f}^3) = \Range(\morphSeqName{f}^2)
+      \morphSeqDomain{\morphSeqName{f}^3} = \Range(\morphSeqName{f}^2)
     $.
   }
 Then
@@ -852,18 +852,18 @@ $.
 \end{proof}
 
 Let $\morphSeqName{f} \defeq (\morphName{f}_\alpha, \alpha \prec \Alpha)$
-be a sequence of functions, $\seqname{D} = \Domain(\morphSeqName{f})$ and \\*
-$\seqname{R} = \Range(\morphSeqName{f})$. Then $\ID[\seqname{R}]$ is a
+be a sequence of functions, $\seqname{D} = \morphSeqDomain{\morphSeqName{f}}$ and \\*
+$\seqname{R} = \Range(\morphSeqName{f})$. Then $\morphSeqId[\seqname{R}]$ is a
 left $\morphCompose[()]$ identity for $\morphSeqName{f}$ and
-$\ID[\seqname{D}]$ is a right $\morphCompose[()]$ identity for
+$\morphSeqId[\seqname{D}]$ is a right $\morphCompose[()]$ identity for
 $\morphSeqName{f}$.
 
 \begin{proof}
 \begin{equation*}
 \begin{split}
-  \ID[\seqname{R}] \morphCompose[()] \morphSeqName{f}
+  \morphSeqId[\seqname{R}] \morphCompose[()] \morphSeqName{f}
   & =
-  (\Id[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_\alpha,
+  (\morphId[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_\alpha,
 \alpha \prec \Alpha)
 \\*
   & =
@@ -875,9 +875,9 @@ $\morphSeqName{f}$.
 \end{equation*}
 \begin{equation*}
 \begin{split}
-  \morphSeqName{f} \morphCompose[()] \ID[\seqname{D}]
+  \morphSeqName{f} \morphCompose[()] \morphSeqId[\seqname{D}]
   & =
-  (\morphName{f}_\alpha \morphCompose \Id[\domain(\morphName{f}_\alpha)],
+  (\morphName{f}_\alpha \morphCompose \morphId[\morphDomain{\morphName{f}_\alpha}],
 \alpha \prec \Alpha)
 \\*
   & =
@@ -893,14 +893,14 @@ $\morphSeqName{f}$.
 \begin{definition}[Tuple functions]
 Let $\seqname{S} \defeq (s_n, n \in [1,N])$ be a tuple of functions. Then
 \begin{equation}
-\Domain(\seqname{S}) \defeq \bigl ( \domain(s_n), n \in [1,N] \bigr )
+\morphSeqDomain{\seqname{S}} \defeq \bigl ( \morphDomain{s_n}, n \in [1,N] \bigr )
 \end{equation}
 \begin{equation}
 \Range(\seqname{S}) \defeq \bigl ( \range(s_n), n \in [1,N] \bigr )
 \end{equation}
 
 Let $\seqname{T} \defeq (t_n, n \in [1,N])$ be a tuple of functions with
-$\Range(\seqname{S})=\Domain(\seqname{T})$,
+$\Range(\seqname{S})=\morphSeqDomain{\seqname{T}}$,
 Then their composition is the tuple
 $
   \seqname{T} \morphCompose[()] \seqname{S} \defeq
@@ -931,17 +931,17 @@ Then the following are tuple functioms
 \label{lem:tupfunc}
 Let $\morphSeqName{f} \defeq (\morphName{f}_n, n \in [1,N])$ be a tuple of
 functions,
-$\seqname{D} \defeq \Domain(\morphSeqName{f})$ and
-$\seqname{R} \defeq \Range(\morphSeqName{f})$. Then $\ID[\seqname{R}]$ is a
-left $\morphCompose[()]$ identity for $\morphSeqName{f}$ and $\ID[\seqname{D}]$
+$\seqname{D} \defeq \morphSeqDomain{\morphSeqName{f}}$ and
+$\seqname{R} \defeq \Range(\morphSeqName{f})$. Then $\morphSeqId[\seqname{R}]$ is a
+left $\morphCompose[()]$ identity for $\morphSeqName{f}$ and $\morphSeqId[\seqname{D}]$
 is a right $\morphCompose[()]$ identity for $\morphSeqName{f}$.
 
 \begin{proof}
 \begin{equation*}
 \begin{split}
-  \ID[\seqname{R}] \morphCompose[()] \morphSeqName{f}
+  \morphSeqId[\seqname{R}] \morphCompose[()] \morphSeqName{f}
   & =
-  (\Id[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_n, n \in [1,N])
+  (\morphId[\range(\morphName{f}_\alpha)] \morphCompose \morphName{f}_n, n \in [1,N])
 \\*
   & =
   (\morphName{f}_n, n \in [1,N])
@@ -952,9 +952,9 @@ is a right $\morphCompose[()]$ identity for $\morphSeqName{f}$.
 \end{equation*}
 \begin{equation*}
 \begin{split}
-  \morphSeqName{f} \morphCompose[()] \ID[\seqname{D}]
+  \morphSeqName{f} \morphCompose[()] \morphSeqId[\seqname{D}]
   & =
-  (\morphName{f}_n \morphCompose \Id[\domain(\morphName{f}_n)], n \in [1,N])
+  (\morphName{f}_n \morphCompose \morphId[\morphDomain{\morphName{f}_n}], n \in [1,N])
 \\*
   & =
   (\morphName{f}_n, n \in [1,N])
@@ -977,14 +977,14 @@ be tuples of functions with
 \donotbreak
   {
     $
-      \Domain(\morphSeqName{f}^2) = \Range(\morphSeqName{f}^1)
+      \morphSeqDomain{\morphSeqName{f}^2} = \Range(\morphSeqName{f}^1)
     $
   }
 and
 \donotbreak
   {
     $
-      \Domain(\morphSeqName{f}^3) = \Range(\morphSeqName{f}^2)
+      \morphSeqDomain{\morphSeqName{f}^3} = \Range(\morphSeqName{f}^2)
     $.
   }
 Then
@@ -1015,7 +1015,7 @@ $.
 Let $\seqname{M}^i \defeq (\morphSeqName{f}^i, o^i_1, o^i_2)$, $i=1,2$,
 be tuples such that each $\morphSeqName{f}^i$ is a sequence of functions
 or each $\morphSeqName{f}^i$ is a tuple of functions,
-$\Range(\morphSeqName{f}^1) = \Domain(\morphSeqName{f}^2)$ and
+$\Range(\morphSeqName{f}^1) = \morphSeqDomain{\morphSeqName{f}^2}$ and
 $0^1_2=o^2_1$. Then
 
 \begin{equation}
@@ -1038,7 +1038,7 @@ functions,
   {
     $
       \Range(\morphSeqName{f}^i) =
-      \Domain(\morphSeqName{f}^{i+1})
+      \morphSeqDomain{\morphSeqName{f}^{i+1}}
     $
   }
 and $o^i_2 = o^{i+1}_1$, $i=1,2$.
@@ -1074,23 +1074,23 @@ and \fullcref{lem:tupfunc}, we have
 \end{equation*}
 \end{proof}
 
-Let $\seqname{D}^i \defeq \Domain(\morphSeqName{f}^i)$ and
+Let $\seqname{D}^i \defeq \morphSeqDomain{\morphSeqName{f}^i}$ and
 $\seqname{R}^i \defeq \Range(\morphSeqName{f}^i)$. Then
 \begin{equation}
-(\ID[\seqname{R}^i], o^i_2, o^i_2) \morphCompose[A] \seqname{M}^i =
+(\morphSeqId[\seqname{R}^i], o^i_2, o^i_2) \morphCompose[A] \seqname{M}^i =
 \seqname{M}^i
 \end{equation}
 \begin{equation}
-\seqname{M}^i \morphCompose[A] (\ID[\seqname{D}^i], o^i_1, o^i_1) =
+\seqname{M}^i \morphCompose[A] (\morphSeqId[\seqname{D}^i], o^i_1, o^i_1) =
 \seqname{M}^i
 \end{equation}
 
 \begin{proof}
 \begin{equation*}
 \begin{split}
-  (\ID[\seqname{R}^i], o^i_2, o^i_2) \morphCompose[A] \seqname{M}^i
+  (\morphSeqId[\seqname{R}^i], o^i_2, o^i_2) \morphCompose[A] \seqname{M}^i
   & =
-  (\ID[\seqname{R}^i] \morphCompose[()] \morphSeqName{f}^i, o^i_1, o^i_2)
+  (\morphSeqId[\seqname{R}^i] \morphCompose[()] \morphSeqName{f}^i, o^i_1, o^i_2)
 \\*
   & =
   (\morphSeqName{f}^i, o^i_1, o^i_2)
@@ -1101,9 +1101,9 @@ $\seqname{R}^i \defeq \Range(\morphSeqName{f}^i)$. Then
 \end{equation*}
 \begin{equation*}
 \begin{split}
-  \seqname{M}^i \morphCompose[A] (\ID[\seqname{D}^i], o^i_1, o^i_1)
+  \seqname{M}^i \morphCompose[A] (\morphSeqId[\seqname{D}^i], o^i_1, o^i_1)
   & =
-  (\morphSeqName{f}^i \morphCompose[()] \ID[\seqname{D}^i], o^i_1, o^i_2)
+  (\morphSeqName{f}^i \morphCompose[()] \morphSeqId[\seqname{D}^i], o^i_1, o^i_2)
 \\*
   & =
   (\morphSeqName{f}^i, o^i_1, o^i_2)
@@ -1153,7 +1153,7 @@ $\Set(S)$ is the underlying set of $S$.
 \item
 $\Topology(S)$ is the topology of $S$.
 \item
-$\Topology(Y,S) \defeq \set{U \cap Y}[{U \in \Topology(S)}]$
+$\Topology(Y,S) \defeq \setBuild{U \cap Y}[{U \in \Topology(S)}]$
 is the relative topology of $Y$.
 \item
 $\Top(Y,S) \defeq \bigl ( Y, \Topology(Y,S) \bigr )$ is $Y$ with the
@@ -1161,7 +1161,7 @@ relative topology.
 \item
 $
   \op{S} \defeq
-  \set
+  \setBuild
     {(U, \Topology(U,S))}%
     [{{ U \in \Topology(S) \setminus \{ \emptyset \} }}]
 $
@@ -1174,7 +1174,7 @@ of open subspaces in $\seqname{S}$.
 
 Let $S$ and $T'$ be spaces, $T \subseteq T'$ be a subspace and
 $\morphName{f} \maps S \to T$ a function. Then
-$\morphName{f} \maps S \to T' \defeq \Id[{T},{T'}] \morphCompose \morphName{f}$
+$\morphName{f} \maps S \to T' \defeq \morphIncl[{T},{T'}] \morphCompose \morphName{f}$
 is $\morphName{f}$ considered as a function from $S$ to $T'$.
 
 Let $S'$ and $T'$ be spaces, $S \subseteq S'$, $T \subseteq T'$ be
@@ -1607,7 +1607,7 @@ then
 $\morphName{f} \restrictto_{A'} \maps A' \to B'$ is a morphism.
 \label{mod:restriction}
 \item If $A' \objin \catName{S} \subseteq A \objin \catName{S}$ then
-the inclusion map $\Id[{A'},{A}] \maps A' \hookrightarrow A$ is a
+the inclusion map $\morphIncl[{A'},{A}] \maps A' \hookrightarrow A$ is a
 morphism.
 \label{mod:inclusion}
 \begin{remark}
@@ -1680,7 +1680,7 @@ is $U$ with the relative topology.
 $
   \Topcat(\seqname{S}) \defeq
   \Biggl (
-    \set
+    \setBuild
       {{\Top(U,S)}}%
       [{U \objin \catName{S}}],
     \Ar(\catName{S})
@@ -1895,7 +1895,7 @@ $S^2$, is $S^1$ by \cref{mod:cover} of
 
 \item
 Let $S^i$, $i=1,2$, be a topological space and $S^1 \subsp[open-] S^2$.
-Then $\Id[S^1,S^2]$ is open and continuous.
+Then $\morphIncl[S^1,S^2]$ is open and continuous.
 
 \begin{proof}
 Let $U$ be open in $S^1$.
@@ -1904,7 +1904,7 @@ $U = S^1 \cap V$.  Since $V$ and $S^1$ are open in $S^2$, so is
 $U = S^1 \cap V$.
 
 Let $V$ be open in $S^2$. Since $S^1 \subsp S^2$,
-${\Id[S^1,S^2]}^{-1}[V] = V \cap S^1$ is open in $S^1$.
+${\morphIncl[S^1,S^2]}^{-1}[V] = V \cap S^1$ is open in $S^1$.
 \end{proof}
 \end{enumerate}
 \end{lemma}
@@ -2002,7 +2002,7 @@ Let $\seqname{S}$ be a set of topological spaces.
 $
   \Triv{\seqname{S}}
   \defeq
-  \set
+  \setBuild
     {\Triv{S'}}%
     [S' \in \seqname{S}]
 $
@@ -2014,7 +2014,7 @@ of $\seqname{S}$.
 
 $\optriv{\seqname{S}}$, the category of open trivial model spaces
 in $\seqname{S}$, is the category whose objects are
-$\set {\Triv{U}}[U \in \op{\seqname{S}}]$, the trivial
+$\setBuild {\Triv{U}}[U \in \op{\seqname{S}}]$, the trivial
 model spaces of non-null open sets of spaces in $\seqname{S}$,
 and whose morphisms are all the continuous functions among them.
 \end{definition}
@@ -2056,8 +2056,8 @@ continuous, hence a morphism.
 \begin{enumerate}
 \item $A$ and $A'$ are open.
 \item
-The inclusion map $\Id[A',A]$ is continuous.
-\item The inclusion map $\Id[A',A]$ is a
+The inclusion map $\morphIncl[A',A]$ is continuous.
+\item The inclusion map $\morphIncl[A',A]$ is a
 morphism of $\catName{S}^i$ by the definition of $\Triv{S^i}$.
 
 \item $\Triv{S^i}$ trivially satisfies the restricted sheaf condition
@@ -2363,7 +2363,7 @@ model subspace and $\morphName{f} \maps S^1 \to S^2$ be a model function
 of $\seqname{S}^1$ to $\seqname{S}^2$. Then
 $
   \morphName{f} \maps \seqname{S}^1 \to \seqname{S}'^2 \defeq
-  \Id[{\seqname{S}^2},{\seqname{S}'^2}] \morphCompose \morphName{f}
+  \morphIncl[{\seqname{S}^2},{\seqname{S}'^2}] \morphCompose \morphName{f}
 $
 is $\morphName{f}$ considered as a model function from $\seqname{S}^1$ to
 $\seqname{S}'^2$.
@@ -2527,7 +2527,7 @@ If $\seqname{S} \defeq (S, \catName{S}) \objin \catName{M}$ and
 $S^i \objin \catName{S}$, $i=1,2$, then
 $\seqname{S}^i \defeq \Mod(S^i,\seqname{S}) \objin \catName{M}$.
 If further $S^1 \subseteq S^2$ then the inclusion map
-$\Id[S^1,S^2] \maps \seqname{S}^1 \morphMono \seqname{S}^2$ is a morphism
+$\morphIncl[S^1,S^2] \maps \seqname{S}^1 \morphMono \seqname{S}^2$ is a morphism
 of $\catName{S}$.
 
 \item
@@ -2591,7 +2591,7 @@ $\morphName{f} \maps \seqname{U}^1 \to \seqname{U}^2 \arin \catName{M}$.
 $\morphName{f} \maps \seqname{U}^1 \to \seqname{S}^2 \arin \catName{M}$.
 
 \begin{proof}
-Since $\Id[\seqname{U}^2,\seqname{S}^2] \arin \catName{M}$ by
+Since $\morphIncl[\seqname{U}^2,\seqname{S}^2] \arin \catName{M}$ by
 \cref{modcat:inc} of
 {
   \showlabelsinline
@@ -2602,7 +2602,7 @@ $\morphName{f} \maps \seqname{U}^1 \to \seqname{U}^2 \arin \catName{M}$
 by hypothesis,
 $
   \morphName{f} \maps \seqname{U}^1 \to \seqname{S}^2 =
-    \Id[\seqname{U}^2,\seqname{S}^2] \morphCompose
+    \morphIncl[\seqname{U}^2,\seqname{S}^2] \morphCompose
     \morphName{f} \maps \seqname{U}^1 \to \seqname{U}^2
   \arin \catName{M}
 $
@@ -2616,7 +2616,7 @@ Let $\seqname{S} \defeq (S, \catName{S})$ be a model space.
 $
   \Triv[submod-]{\seqname{S}}
   \defeq
-  \set
+  \setBuild
     {\seqname{M}}%
     [\seqname{M} \submod \seqname{S}]
 $
@@ -2629,7 +2629,7 @@ subspace model category of $\seqname{S}$.
 $
   \Triv[full-submod-]{\seqname{S}}
   \defeq
-  \set
+  \setBuild
     {\seqname{M}}%
     [\seqname{M} \submod[full-] \seqname{S}]
 $
@@ -2644,7 +2644,7 @@ Let $\seqname{S}$ be a set of model spaces.
 $
   \Triv[submod-]{\seqname{S}}
   \defeq
-  \set
+  \setBuild
     {\seqname{M}}%
     [
       \equant
@@ -2661,7 +2661,7 @@ subspace model category of $\seqname{S}$.
 $
   \Triv[full-submod-]{\seqname{S}}
   \defeq
-  \set
+  \setBuild
     {\seqname{M}}%
     [
       \equant
@@ -3145,16 +3145,16 @@ $S^1$ and hence a model neighborhood of $\Triv{S^1}$.
 
 \item
 \label{M-morph:Idislocal}
-If $\seqname{S}^1 \submod \seqname{S}^2$ then $\Id[S^1,S^2]$ is a local
+If $\seqname{S}^1 \submod \seqname{S}^2$ then $\morphIncl[S^1,S^2]$ is a local
 m-morphism of $\seqname{S}^1$ to $\seqname{S}^2$. If each ${S}^i$ is
-a model neighborhood of $\seqname{S}^i$ then $\Id[S^1,S^2]$ is a
+a model neighborhood of $\seqname{S}^i$ then $\morphIncl[S^1,S^2]$ is a
 morphism of $\catName{S}^2$.
 
 \begin{proof}
 Let $u \in S^1$ and $U_u$ a model neighborhood of $\seqname{S}^1$ for
 $u$. Since $\seqname{S}^1 \submod \seqname{S}^2$, $U_u$ is also a
 model neighborhood of $\seqname{S}^2$ for $u$, and hence
-$\Id[U_u] \arin \catName{S}^2$.
+$\morphId[U_u] \arin \catName{S}^2$.
 
 If each $S^i$ is a model neighborhood of $\seqname{S}^i$, then since
  $\seqname{S}^1 \submod \seqname{S}^2$ by hypothesis. $S^1$ is a model
@@ -3169,14 +3169,14 @@ neighborhood of $\seqname{S}^2$.  The result follows by
 \item
 \label{M-morph:Idcatislocal}
 If $\catName{M}^1 \subcat \catName{M}^2$ and
-$\seqname{S}^1 \submod \seqname{S}^2$ then $\Id[S^1,S^2]$ is a
+$\seqname{S}^1 \submod \seqname{S}^2$ then $\morphIncl[S^1,S^2]$ is a
 morphism of $\catName{M}^2$.
 
 \begin{proof}
 $\seqname{S}^1 \objin \catName{M}^2$ because
 $\catName{M}^1 \subcat \catName{M}^2$.
-$\Id[S^2] \arin \catName{M}^2$. Then
-$\Id[S^1,S^2] \arin \catName{M}^2$ by
+$\morphId[S^2] \arin \catName{M}^2$. Then
+$\morphIncl[S^1,S^2] \arin \catName{M}^2$ by
 {
   \showlabelsinline
   \cref{modcat:inc}
@@ -3354,7 +3354,7 @@ $i=1,2$.
 
 \item
 If $S^i$ is a model neighborhood of $\seqname{S}^i$ then
-$\Id[{\seqname{S}^i}]$ is a morphism of $\catName{S}^i$.
+$\morphId[{\seqname{S}^i}]$ is a morphism of $\catName{S}^i$.
 
 \begin{proof}
 $\seqname{S}^i \submod \seqname{S}^i$.
@@ -4979,7 +4979,7 @@ Let $\seqname{E}$ and $\seqname{C}$ be model spaces.
 
 \begin{multline}
 \maxfull[*]{\Atl[(proper)]_\Ob(\seqname{E}, \seqname{C})} \defeq
-\set
+\setBuild
 {{
    (\seqname{A}, \seqname{E}, \seqname{C})
 }}%
@@ -4998,7 +4998,7 @@ Let $\seqname{E}$ and $\seqname{C}$ be sets of model spaces.
 
 \begin{multline}
 \maxfull[*]{\Atl[(proper)]_\Ob(\seqname{E}, \seqname{C})} \defeq
-\set
+\setBuild
 {{
    \bigl ( \seqname{A}, (E,\catName{E}), (C,\catName{C}) \bigr )
 }}%
@@ -5019,7 +5019,7 @@ Let $\seqname{E}$ be a set of topological spaces and $\seqname{C}$ a
 set of model spaces. Then
 \begin{multline}
 \maxfull[*]{\Atl[(proper)]_\Ob (\seqname{E}, \seqname{C})} \defeq
-\set
+\setBuild
 {{
    \bigl ( \seqname{A}, E, (C,\catName{C}) \bigr )
 }}%
@@ -5201,7 +5201,7 @@ below is commutative, as shown in \pagecref{fig:AtlM1}.
 D \defeq & \Biggl \{
 \\
   &&
-  \set{u^1} \to^{\morphName{i}} U'^1
+  \setBuild{u^1} \to^{\morphName{i}} U'^1
   \to/{>}->>/^{\phi^1}_\iso V'^1
   \to^{\morphName{f}_1} \hat{V}'^2,
 \\
@@ -5679,7 +5679,7 @@ The $\seqname{E}^1$-$\seqname{E}^2$ m-atlas inclusion morphism of
 $\seqname{A}^1$ to $\seqname{A}^2$ in the coordinate spaces
 $\seqname{C}^1$, $\seqname{C}^2$ is
 $
- \ID%
+ \morphSeqIncl%
    [
      {(\seqname{E}^1, \seqname{C}^1)},
      {(\seqname{E}^2, \seqname{C}^2)}
@@ -5693,14 +5693,14 @@ The m-atlas inclusion morphism of
 $(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)$ to
 $(\seqname{A}^2, \seqname{E}^2, \seqname{C}^2)$ is \\*
 $
-  \Id%
+  \morphIncl%
     [
         {(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)},
         {(\seqname{A}^2, \seqname{E}^2, \seqname{C}^2)}
     ]
   \defeq
   \biggl (
-    \ID%
+    \morphSeqIncl%
       [
         {(\seqname{E}^1,\seqname{C}^1)},
         {(\seqname{E}^2,\seqname{C}^2)}
@@ -5710,7 +5710,7 @@ $
   \biggr )
 $,\hspace{1pt}
 $
- \ID%
+ \morphSeqIncl%
    [
      {(\seqname{E}^1, \seqname{C}^1)},
      {(\seqname{E}^2, \seqname{C}^2)}
@@ -5723,7 +5723,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 The $\seqname{E}^i$ m-atlas identity morphism of $\seqname{A}^i$ in the
 coordinate space $\seqname{C}^1$, $\seqname{C}^2$ is
 $
- \ID%
+ \morphSeqId%
    [
      {(\seqname{E}^i, \seqname{C}^i)}
    ]
@@ -5735,15 +5735,15 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 The m-atlas identity morphism of
 $(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)$ is \\*
 $
-  \Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}] \defeq
+  \morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}] \defeq
   \bigl (
-    \ID[{{(\seqname{E}^i,\seqname{C}^i)}}],
+    \morphSeqId[{{(\seqname{E}^i,\seqname{C}^i)}}],
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i),
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
   \bigr )
 $,\hspace{1pt}
 $
- \ID%
+ \morphSeqId%
    [
      {(\seqname{E}^i, \seqname{C}^i)}
    ]
@@ -5774,7 +5774,7 @@ The $E^1$-$E^2$ m-atlas inclusion morphism of
 $\seqname{A}^1$ to $\seqname{A}^2$ in the coordinate spaces
 $\seqname{C}^1$, $\seqname{C}^2$ is
 $
- \ID%
+ \morphSeqIncl%
    [
      {(E^1, \seqname{C}^1)},
      {(E^2, \seqname{C}^2)}
@@ -5785,14 +5785,14 @@ The m-atlas inclusion morphism of
 $(\seqname{A}^1, E^1, \seqname{C}^1)$ to
 $(\seqname{A}^2, E^2, \seqname{C}^2)$ is \\*
 $
-  \Id%
+  \morphIncl%
     [
         {(\seqname{A}^1, E^1, \seqname{C}^1)},
         {(\seqname{A}^2, E^2, \seqname{C}^2)}
     ]
   \defeq
   \biggl (
-    \ID%
+    \morphSeqIncl%
     [
       {(E^1,\seqname{C}^1)},
       {(E^2,\seqname{C}^2)}
@@ -5802,7 +5802,7 @@ $
   \biggr )
 $,\hspace{1pt}
 $
- \ID%
+ \morphSeqIncl%
    [
      {(E^1, \seqname{C}^1)},
      {(E^2, \seqname{C}^2)}
@@ -5815,7 +5815,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 The $E^i$ m-atlas identity morphism of $\seqname{A}^i$ in the
 coordinate space $\seqname{C}^i$ is
 $
- \ID%
+ \morphSeqId%
    [
      {(E^i, \seqname{C}^i)}
    ]
@@ -5824,15 +5824,15 @@ $.
 The m-atlas identity morphism of
 $(\seqname{A}^i, E^i, \seqname{C}^i)$ is \\*
 $
-\Id[{{(\seqname{A}^i, E^i, \seqname{C}^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, E^i, \seqname{C}^i)}}] \defeq
 \bigl (
-  \ID[{{(E^i,\seqname{C}^i)}}],
+  \morphSeqId[{{(E^i,\seqname{C}^i)}}],
   (\seqname{A}^i, E^i, \seqname{C}^i),
   (\seqname{A}^i, E^i, \seqname{C}^i)
 \bigr )
 $,\hspace{1pt}
 $
- \ID%
+ \morphSeqId%
    [
      {(E^i, \seqname{C}^i)}
    ]
@@ -8157,7 +8157,7 @@ $\hat{\morphName{f}} \maps V'^3 \toiso \hat{V}'^3$\! such that diagram
 D \defeq & \bigl \{
 \\
   &&
-  \morphName{i} \maps \set{u^2} \morphMono I^{2,3},
+  \morphName{i} \maps \setBuild{u^2} \morphMono I^{2,3},
   \phi'^2 \maps I^{2,3} \morphMono V'^2,
   \morphName{f}^2_1 \maps  V'^2 \to \seqname{C}^3,
 \\
@@ -8207,7 +8207,7 @@ below hold, as shown in \cref{fig:morphcompN1,fig:morphcompN2}.
 D \defeq & \bigl \{
 \\
   &&
-  \morphName{i} \maps \set{u^1} \morphMono U''^1,
+  \morphName{i} \maps \setBuild{u^1} \morphMono U''^1,
   \phi^1 \maps U''^1 \morphMono V''^1,
   \morphName{f}^2_1 \morphCompose \morphName{f}^1_1 \maps  V''^1 \to V'^3,
 \\
@@ -8459,7 +8459,7 @@ at $u^2$ such that $\morphName{f}^2_0[U''^2] \subseteq U'^3$ and diagram
 D \defeq & \bigl \{
 \\
   &&
-  \morphName{i} \maps \set{u^2} \morphMono U''^2,
+  \morphName{i} \maps \setBuild{u^2} \morphMono U''^2,
   \phi^2 \maps U''^2 \toiso V'^2,
   \morphName{f}_1 \maps  V''^2 \to \hat{V}'^3,
 \\
@@ -9213,7 +9213,7 @@ $\seqname{A}^1 \subseteq \seqname{A}^2$
 
 The inclusion morphism
 $
-  \ID%
+  \morphSeqIncl%
     [
       {(\seqname{E}^1, \seqname{C}^1)},
       {(\seqname{E}^2, \seqname{C}^2)}
@@ -9237,7 +9237,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
   [
     \ensuremath
       {
-        \ID%
+        \morphSeqIncl%
           [
             {(\seqname{E}^1, \seqname{C}^1)},
             {(\seqname{E}^2, \seqname{C}^2)}
@@ -9252,7 +9252,7 @@ is M-locally nearly commutative in $\seqname{C}^2$,
 let $u^1 \in I$. Since $\seqname{E}^1 \submod \seqname{E}^2$ by
 hypothethis, $U^1$ is a model neighborhood of $\seqname{E}^2$ and thus
 $I$ is a model neighborhood of $\seqname{E}^2$ and the identity map
-$\Id[I,U^2]$ is a morphism of $\seqname{E}^2$. Then define
+$\morphIncl[I,U^2]$ is a morphism of $\seqname{E}^2$. Then define
 $U'^1 \defeq I$, $U'^2 \defeq I$, $V'^1 \defeq \phi^1[I]$,
 $V'^2 \defeq \phi^2[I]$, $\hat{V}'^2 \defeq V'^1$ and
 $
@@ -9267,10 +9267,10 @@ D \defeq & \bigl \{
 \\
   &&
   \phi^1 \maps I \defeq U^1 \cap U^2 \morphMono V^1,
-  \Id[{V^1},{\seqname{C}^2}] \maps  V^1 \to \seqname{C}^2,
+  \morphIncl[{V^1},{\seqname{C}^2}] \maps  V^1 \to \seqname{C}^2,
 \\
   &&
-  \Id[{U^1},{U^2}] \maps  U^1 \to U^2,
+  \morphIncl[{U^1},{U^2}] \maps  U^1 \to U^2,
   \phi^2 \maps U^2 \toiso V^2
 \\
 & \bigr \}
@@ -9281,7 +9281,7 @@ D \defeq & \bigl \{
   [
     \ensuremath
       {
-        \ID%
+        \morphSeqIncl%
           [
             {(\seqname{E}^1, \seqname{C}^1)},
             {(\seqname{E}^2, \seqname{C}^2)}
@@ -9292,12 +9292,12 @@ D \defeq & \bigl \{
 
 Let $u^1 \in \seqname{E}^1$. Since the model neighborhoods of
 $\seqname{E}^1$ form an open cover, there is a model neighborhood $U$ of
-$\seqname{E}^1$ at $u^1$. $\Id[{U}]$ is a morphism of $\seqname{E}^1$
+$\seqname{E}^1$ at $u^1$. $\morphId[{U}]$ is a morphism of $\seqname{E}^1$
 and of $\catName{E}^1$; since $\seqname{E}^1 \submod \seqname{E}^2$ and
-$\catName{E}^1 \subcat[full-] \catName{E}^2$, $\Id[{U}]$ is also a
+$\catName{E}^1 \subcat[full-] \catName{E}^2$, $\morphId[{U}]$ is also a
 morphism of $\seqname{E}^2$ and of $\catName{E}^2$. Thus
 $
-\Id%
+\morphIncl%
   [
     {\seqname{E}^1},
     {\seqname{E}^2}
@@ -9308,12 +9308,12 @@ $\catName{E}^1$-$\catName{E}^2$ m-morphism $\seqname{E}^1$ to $\seqname{E}^2$.
 
 Let $v^1 \in \seqname{C}^1$. Since the model neighborhoods of
 $\seqname{C}^1$ form an open cover, there is a model neighborhood $V$ of
-$\seqname{C}^1$ at $v^1$. $\Id[{V}]$ is a morphism of $\seqname{C}^1$
+$\seqname{C}^1$ at $v^1$. $\morphId[{V}]$ is a morphism of $\seqname{C}^1$
 and of $\catName{C}^1$; since $\seqname{C}^1 \submod \seqname{C}^2$ and
-$\catName{C}^1 \subcat[full-] \catName{C}^2$, $\Id[{V}]$ is also a
+$\catName{C}^1 \subcat[full-] \catName{C}^2$, $\morphId[{V}]$ is also a
 morphism of $\seqname{C}^2$ and of $\catName{C}^2$. Thus
 $
-  \Id%
+  \morphIncl%
     [
       {\seqname{C}^1},
       {\seqname{C}^2}
@@ -9326,7 +9326,7 @@ $\catName{C}^1$-$\catName{C}^2$ m-morphism $\seqname{C}^1$ to $\seqname{C}^2$.
 
 If $\seqname{A}^1$ and $\seqname{A}^2$ are semi-maximal then
 $
-  \ID%
+  \morphSeqIncl%
     [
       {(\seqname{E}^1, \seqname{C}^1)},
       {(\seqname{E}^2, \seqname{C}^2)}
@@ -9337,7 +9337,7 @@ is an m-atlas morphism.
 \begin{proof}
 Since
 $
-  \ID%
+  \morphSeqIncl%
     [
       {(\seqname{E}^1, \seqname{C}^1)},
       {(\seqname{E}^2, \seqname{C}^2)}
@@ -9353,7 +9353,7 @@ semi-maximal by hypothesis, it is an m-atlas morphism by
 If $\seqname{E}^1 \objin \catName{E}^2$ and
 $\seqname{C}^1 \objin \catName{C}^2$ then
 $
-\Id%
+\morphIncl%
     [
       {(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)},
       {(\seqname{A}^2, \seqname{E}^2, \seqname{C}^2)}
@@ -9361,11 +9361,11 @@ $
 $
 is strict:
 
-$\Id[{\seqname{E}^1}] \arin \catName{E}^1
+$\morphId[{\seqname{E}^1}] \arin \catName{E}^1
     \subcat[full-] \catName{E}^2
 $ and
 $
-  \Id[{\seqname{C}^1}] \arin \catName{C}^1
+  \morphId[{\seqname{C}^1}] \arin \catName{C}^1
     \subcat[full-] \catName{C}^2
 $.
 \end{proof}
@@ -9375,7 +9375,7 @@ If each $\Top{\seqname{E}^i} \objin \seqname{E}^i$
 and each $\Top{\seqname{C}^i} \objin \seqname{C}^i$
 ($\seqname{C}^i \objin \catName{C}^i$) then
 $
-  \ID%
+  \morphSeqIncl%
     [
       {(\seqname{E}^1, \seqname{C}^1)},
       {(\seqname{E}^2, \seqname{C}^2)}
@@ -9403,7 +9403,7 @@ There are four overlapping cases
         \Top{\seqname{E}^i} \objin \seqname{E}^i
       }:
   ]
-$\Id[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
+$\morphIncl[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
 $\seqname{E}^2$ by \cref{mod:inclusion} of
 {
   \showlabelsinline
@@ -9419,7 +9419,7 @@ hence an m-morphism of $\seqname{E}^1$ to $\seqname{E}^2$.
         \seqname{E}^i \objin \catName{E}^2
       }:
   ]
-$\Id[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
+$\morphIncl[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
 $\catName{E}^2$ by \cref{modcat:morph} of
 {
   \showlabelsinline
@@ -9436,7 +9436,7 @@ to $\seqname{E}^2$.
         \Top{\seqname{C}^i} \objin \seqname{C}^i
       }:
   ]
-$\Id[{\seqname{C}^1},{\seqname{C}^2}]$ is a morphism of
+$\morphIncl[{\seqname{C}^1},{\seqname{C}^2}]$ is a morphism of
 $\seqname{C}^2$ by \cref{mod:inclusion} of
 {
   \showlabelsinline
@@ -9452,7 +9452,7 @@ hence an m-morphism of $\seqname{C}^1$ to $\seqname{C}^2$.
         \seqname{C}^i \objin \catName{C}^2
       }:
   ]
-$\Id[{\seqname{C}^1},{\seqname{C}^2}]$ is a morphism of
+$\morphIncl[{\seqname{C}^1},{\seqname{C}^2}]$ is a morphism of
 $\catName{C}^2$ by \cref{modcat:morph} of
 {
   \showlabelsinline
@@ -9501,7 +9501,7 @@ coordinate spaces $\seqname{C}^1$,  $\seqname{C}^2$ is
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -9547,7 +9547,7 @@ coordinate spaces $\seqname{C}^1$,  $\seqname{C}^2$ is
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -9594,7 +9594,7 @@ $\seqname{P} \defeq \seqname{E} \times \seqname{C}$
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -9642,7 +9642,7 @@ $\seqname{P} \defeq \Ob(\catName{E}) \times \seqname{C}$
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -9692,7 +9692,7 @@ $\seqname{P} \defeq \seqname{E} \times Ob(\catName{C})$
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -9740,7 +9740,7 @@ $\seqname{P} \defeq \Ob(\catName{E}) \times Ob(\catName{C})$
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -10017,10 +10017,10 @@ be a (strict, semi-strict) $\seqname{E}^1$-$\seqname{E}^2$ M-atlas
 (near) morphism of $\seqname{A}^1$ to $\seqname{A}^2$ in the coordinate
 spaces $\seqname{C}^1$, $\seqname{C}^2$.
 
-The identity functor $\Functor_{\M,\Id}$ is
+The identity functor $\Functor_{\M,\morphId}$ is
 
 \begin{equation}
-\Functor_{\M,\Id} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
+\Functor_{\M,\morphId} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
 \defeq
 (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
 \end{equation}
@@ -10028,7 +10028,7 @@ The identity functor $\Functor_{\M,\Id}$ is
 This nomenclature will be justified below.
 
 \begin{multline}
-\Functor_{\M,\Id}
+\Functor_{\M,\morphId}
   \biggl (
     (
       \morphName{f}_0 \maps \seqname{E}^1 \to \seqname{E}^2,
@@ -10082,7 +10082,7 @@ $
     }
 $
 is
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
 \item
 \label{Mcat:morph}
 $
@@ -10109,7 +10109,7 @@ $
     }
 $
 is
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
 
 \begin{proof}
 Let $(\seqname{A}^i,\seqname{E}^i,\seqname{C}^i)$, $i \in [1,3]$,
@@ -10152,7 +10152,7 @@ Composition is associative by \pagecref{lem:labcomp}.
 
 \item [Identity:]
 \leavevmode \\*
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -10179,7 +10179,7 @@ $\Atl[(const)] (\seqname{E}, \seqname{C})$.
 They are not, in general, full subcategories.
 \end{remark}
 
-The identity functor $\Functor_{\M,\Id}$ is a functor from each of the
+The identity functor $\Functor_{\M,\morphId}$ is a functor from each of the
 subcategories to each of the containing categories.
 \end{corollary}
 
@@ -10217,7 +10217,7 @@ Then
         }
     }
   \defeq \\*
-    \set
+    \setBuild
     {{
       \bigl (
         (
@@ -10298,7 +10298,7 @@ $
     }
   }
 $
-is $\Id_{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i}$.
+is $\morphId[(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)]$.
 
 \begin{proof}
 Let $(\seqname{A}^i,\seqname{E}^i,\seqname{C}^i)$, $i \in [1,3]$,
@@ -10340,7 +10340,7 @@ in the coordinate spaces $\seqname{C}^1$, $\seqname{C}^2$ by
 Composition is associative by \pagecref{lem:labcomp}.
 
 \item[Identity:]
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -10366,7 +10366,7 @@ $
     }
   }
 $
-is $\Id_{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i}$.
+is $\morphId[(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)]$.
 \end{enumerate}
 \end{lemma}
 
@@ -10412,9 +10412,9 @@ $
 $.
 
 \begin{equation}
-\Id[{{(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)}}] \defeq
+\morphId[{{(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)}}] \defeq
 \bigl (
-  (\Id[{\seqname{E}^1}], \Id[{\seqname{C}^1}]),
+  (\morphId[{\seqname{E}^1}], \morphId[{\seqname{C}^1}]),
   (\seqname{A}^1, \seqname{E}^1, \seqname{C}^1),
   (\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)
 \bigr )
@@ -10427,7 +10427,7 @@ Let $\seqname{E}$ be a set of topological spaces and $\seqname{C}$ a
 set of model spaces. Then $\Atl(\seqname{E}, \seqname{C})$ is a category
 and the identity morphism for an object
 $(\seqname{A}^1, E^1, \seqname{C}^1)$ is
-$\Id[{{(\seqname{A}^1, E^1, \seqname{C}^1)}}]$.
+$\morphId[{{(\seqname{A}^1, E^1, \seqname{C}^1)}}]$.
 
 \begin{proof}
 Let $(\seqname{A}^i,E^i,\seqname{C}^i)$, $i \in [1,3]$,
@@ -10462,7 +10462,7 @@ is a morphism of $\Atl(\seqname{E}, \seqname{C})$ by
 Composition is associative by \pagecref{lem:labcomp}.
 
 \item[Identity:]
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -10493,7 +10493,7 @@ the admissible morphisms, or both:
 Let $\seqname{E}$ be a set of topological spaces and $\seqname{C}$ a
 set of model spaces. Then
 \begin{equation}
-\Triv{\seqname{E}} \defeq \set {\Triv{E^\mu}}[E^\mu \in \seqname{E}]
+\Triv{\seqname{E}} \defeq \setBuild {\Triv{E^\mu}}[E^\mu \in \seqname{E}]
 \end{equation}
 \begin{equation}
 \Triv{\Atl}(\seqname{E}, \seqname{C}) \defeq
@@ -10659,7 +10659,7 @@ function.
 Let
 $
   \bigl (
-    (\Id[{\seqname{E}^i}], \Id[{\seqname{C}^i}]),
+    (\morphId[{\seqname{E}^i}], \morphId[{\seqname{C}^i}]),
    o^i,
    o^i
   \bigr )
@@ -10670,8 +10670,8 @@ Then
 $
   \bigl (
     (
-      \Id[E^i] \maps \Top(\seqname{E}^i) \to \Top(\seqname{E}^i),
-      \Id[{\seqname{C}^i}]
+      \morphId[E^i] \maps \Top(\seqname{E}^i) \to \Top(\seqname{E}^i),
+      \morphId[{\seqname{C}^i}]
     ),
     o'^i,
     o'^i
@@ -10859,18 +10859,18 @@ function.
 
 \item[Identity:]
 $
-  \Id[o^i] \defeq
+  \morphId[o^i] \defeq
   \bigl (
-    (\Id[E^i], \Id[\seqname{C}^i]),
+    (\morphId[E^i], \morphId[\seqname{C}^i]),
     o^i,
     o^i
   \bigr )
 $.
 Then
 $
-  \Functor_{\Top,\M} \Id[o^i] =
+  \Functor_{\Top,\M} \morphId[o^i] =
   \bigl (
-    (\Id[{\Triv{E^i}}], \Id[{\seqname{C}^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{\seqname{C}^i}]),
     o'^i,
     o'^i
   \bigr )
@@ -10993,7 +10993,7 @@ $\seqname{C}^i$ is
   \left (
     \seqname{C}^i,
     \pi_2[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi' \morphCompose \phi^{-1}}%
       [
         \equant
@@ -11085,7 +11085,7 @@ and thus $\morphName{f} \restrictto_{A'} A' \to B'$ is a morphism.
 
 \item
 If $(U,V,\phi) \in \seqname{A}^i$ then
-$\Id[{V}] = \phi \morphCompose \phi^{-1}$ is a transition function and hence a
+$\morphId[{V}] = \phi \morphCompose \phi^{-1}$ is a transition function and hence a
 morphism of
 $
   \Functor^{\minimal{\M}}_2
@@ -11211,7 +11211,7 @@ $\seqname{C}^i$ is
   \left (
     \seqname{E}^i,
     \pi_1[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi'^{-1} \morphCompose \phi}%
       [
         \equant
@@ -11399,22 +11399,22 @@ $
 \begin{enumerate}
 \item
 $
-\Functor^{\minimal{\M}}_1(\Id[{o^i}]) =
+\Functor^{\minimal{\M}}_1(\morphId[{o^i}]) =
 \Functor^{\minimal{\M}}_1
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{E^i}] \maps \Functor^{\minimal{\M}}_1 o^i \to
+\morphId[{E^i}] \maps \Functor^{\minimal{\M}}_1 o^i \to
 \Functor^{\minimal{\M}}_1 o^i
 $
 \item
 $
-\Id_{\Functor^{\minimal{\M}}_1} o^i =
-\Id[{E^i}] \maps \Functor^{\minimal{\M}}_1 o^i \to
+\morphId[\Functor^{\minimal{\M}}_1] o^i =
+\morphId[{E^i}] \maps \Functor^{\minimal{\M}}_1 o^i \to
 \Functor^{\minimal{\M}}_1 o^i
 $
 \end{enumerate}
@@ -11500,26 +11500,26 @@ $
 \morphCompose
 \Functor^{\minimal{\M}}_2(\morphName{m}^1)
 $
-\item $\Functor (\Id[{A}]) = \Id_{\Functor (A)}$:
+\item $\Functor (\morphId[{A}]) = \morphId[\Functor (A)]$:
 \begin{enumerate}
 \item
 $
-\Functor^{\minimal{\M}}_2(\Id[{o^i}]) =
+\Functor^{\minimal{\M}}_2(\morphId[{o^i}]) =
 \Functor^{\minimal{\M}}_2
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{C^i}] \maps \Functor^{\minimal{\M}}_2 o^i \to
+\morphId[{C^i}] \maps \Functor^{\minimal{\M}}_2 o^i \to
 \Functor^{\minimal{\M}}_2 o^i
 $
 \item
 $
-\Id_{\Functor^{\minimal{\M}}_2} o^i =
-\Id[{C^i}] \maps \Functor^{\minimal{\M}}_2 o^i \to
+\morphId[\Functor^{\minimal{\M}}_2] o^i =
+\morphId[{C^i}] \maps \Functor^{\minimal{\M}}_2 o^i \to
 \Functor^{\minimal{\M}}_2 o^i
 $
 \end{enumerate}
@@ -11814,13 +11814,13 @@ The classic
 m-atlas inclusion morphism of $\seqname{A}^1$ to $\seqname{A}^2$ in the
 coordinate spaces $\seqname{C}^1$, $\seqname{C}^2$ is
 $
-  \Id%
+  \morphIncl%
     [
       {(\seqname{E}^1, \seqname{C}^1)},
       {(\seqname{E}^2, \seqname{C}^2)}
     ]
   \defeq
-  \Id%
+  \morphIncl%
     [
       {\seqname{E}^1},
       {\seqname{E}^2}
@@ -11831,14 +11831,14 @@ The classic m-atlas inclusion morphism of
 $(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)$ to
 $(\seqname{A}^2, \seqname{E}^2, \seqname{C}^2)$ is \\*
 $
-  \Id%
+  \morphIncl%
     [
       {(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)},
       {(\seqname{A}^2, \seqname{E}^2, \seqname{C}^2)}
     ]
   \defeq
   \biggl (
-    \ID%
+    \morphSeqIncl%
     [
       {(\seqname{E}^1)},
       {(\seqname{E}^2)}
@@ -11848,7 +11848,7 @@ $
   \biggr )
 $,
 $
- \Id%
+ \morphIncl%
    [
      {\seqname{E}^1},
      {\seqname{E}^2}
@@ -11872,8 +11872,8 @@ The classic
 m-atlas identity morphism of $\seqname{A}^i$
 in the coordinate space $\seqname{C}^i$ is
 $
-  \Id[{{(\seqname{E}^i, \seqname{C}^i)}}] \defeq
-  \Id%
+  \morphId[{{(\seqname{E}^i, \seqname{C}^i)}}] \defeq
+  \morphId%
     [
       {\seqname{E}^i}
     ]
@@ -11882,15 +11882,15 @@ $.
 The classic m-atlas identity morphism of
 $(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)$ is \\*
 $
-  \Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}] \defeq
+  \morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}] \defeq
   \bigl (
-    \ID[{{(\seqname{E}^i)}}],
+    \morphSeqId[{{(\seqname{E}^i)}}],
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i),
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
   \bigr )
 $,\hspace{1pt}
 $
- \Id%
+ \morphId%
    [
      {\seqname{E}^i}
    ]
@@ -11933,7 +11933,7 @@ m-atlas inclusion morphism of
 $\seqname{A}^1$ to $\seqname{A}^2$ in the coordinate spaces
 $\seqname{C}^1$, $\seqname{C}^2$ is
 $
- \Id%
+ \morphIncl%
    [
      {E^1},
      {E^2}
@@ -11944,14 +11944,14 @@ The classic m-atlas inclusion morphism of
 $(\seqname{A}^1, E^1, \seqname{C}^1)$ to
 $(\seqname{A}^2, E^2, \seqname{C}^2)$ is \\*
 $
-  \Id%
+  \morphIncl%
     [
         {(\seqname{A}^1, E^1, \seqname{C}^1)},
         {(\seqname{A}^2, E^2, \seqname{C}^2)}
     ]
   \defeq
   \biggl (
-    \ID%
+    \morphSeqIncl%
     [
       {(E^1)},
       {(E^2)}
@@ -11961,7 +11961,7 @@ $
   \biggr )
 $,
 $
- \Id%
+ \morphIncl%
    [
      {E^1},
      {E^2}
@@ -11974,7 +11974,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 The classic $E^i$ m-atlas identity morphism of $\seqname{A}^i$ in the
 coordinate space $\seqname{C}^i$ is
 $
- \Id%
+ \morphId%
    [
      {(E^i, \seqname{C}^i)}
    ]
@@ -11982,15 +11982,15 @@ $.
 
 The classic m-atlas identity morphism of $(\seqname{A}^i, E^i, \seqname{C}^i)$ is \\*
 $
-  \Id[{{(\seqname{A}^i, E^i, \seqname{C}^i)}}] \defeq
+  \morphId[{{(\seqname{A}^i, E^i, \seqname{C}^i)}}] \defeq
   \bigl (
-    \ID[{{(E^i)}}],
+    \morphSeqId[{{(E^i)}}],
     (\seqname{A}^i, E^i, \seqname{C}^i),
     (\seqname{A}^i, E^i, \seqname{C}^i)
   \bigr )
 $,
 $
- \Id%
+ \morphId%
    [
      {E^i}
    ]
@@ -12661,13 +12661,13 @@ $\seqname{A}^1 \subseteq \seqname{A}^2$
 
 The classic m-atlas inclusion morphism
 $
- \Id%
+ \morphIncl%
    [
      {(\seqname{E}^1,\seqname{C}^1)},
      {(\seqname{E}^2,\seqname{C}^2)}
    ]
   =
-  \ID%
+  \morphSeqIncl%
     [
       {(\seqname{E}^1)},
       {(\seqname{E}^2)}
@@ -12696,7 +12696,7 @@ spaces $\seqname{C}^1$, $\seqname{C}^2$.
 [
   \ensuremath
   {
-    \Id%
+    \morphIncl%
       [
         {\seqname{E}^1},
         {\seqname{E}^2}
@@ -12713,7 +12713,7 @@ Since $\seqname{A}^1 \subseteq \seqname{A}^2$, $(U^1, V^1, \phi^1)$ is
 compatible with $(U^2, V^2, \phi^2)$, \\*
 $
   \phi^2 \morphCompose
-  \Id%
+  \morphIncl%
     [
       {\seqname{E}^1},
       {\seqname{E}^2}
@@ -12733,7 +12733,7 @@ a morphism of $\catName{C}^2$.
 [
   \ensuremath
   {
-    \Id%
+    \morphIncl%
       [
         {\seqname{E}^1},
         {\seqname{E}^2}
@@ -12751,7 +12751,7 @@ and
 \nobreaks{{($\catName{C}^1 \subcat \catName{C}^2$)}}
 then the classic m-atlas inclusion morphism
 $
-  \Id%
+  \morphIncl%
     [
      {(\seqname{E}^1,\seqname{C}^1)},
      {(\seqname{E}^2,\seqname{C}^2)}
@@ -12775,7 +12775,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 [
   \ensuremath
   {
-    \Id%
+    \morphIncl%
       [
         {(\seqname{E}^1,\seqname{C}^1)},
         {(\seqname{E}^2,\seqname{C}^2)}
@@ -12785,7 +12785,7 @@ $\seqname{C}^1$, $\seqname{C}^2$.
 ]
 
 $
- \Id%
+ \morphIncl%
    [
      {(\seqname{E}^1,\seqname{C}^1)},
      {(\seqname{E}^2,\seqname{C}^2)}
@@ -12806,7 +12806,7 @@ by the above proof.
   [
     \ensuremath
       {
-        \Id%
+        \morphIncl%
           [
             {(\seqname{E}^1,\seqname{C}^1)},
             {(\seqname{E}^2,\seqname{C}^2)}
@@ -12817,7 +12817,7 @@ by the above proof.
 
 
 If each $\Top(\seqname{E}^i) \objin \seqname{E}^i$ then
-$\Id[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
+$\morphIncl[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
 $\seqname{E}^2$ by \cref{mod:inclusion} of
 {
   \showlabelsinline
@@ -12827,7 +12827,7 @@ hence an m-morphism of $\seqname{E}^1$ to $\seqname{E}^2$.
 
 If each
 $\seqname{E}^i \objin \catName{E}^i$
-$\Id[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
+$\morphIncl[{\seqname{E}^1},{\seqname{E}^2}]$ is a morphism of
 $\catName{E}^2$ by \cref{modcat:morph} of
 {
   \showlabelsinline
@@ -12848,7 +12848,7 @@ $\seqname{A}$ an m-atlas of
 $\seqname{E}$ in the coordinate spaces $\seqname{C}$.
 
 The identity morphism
-$\seqname{f} \defeq \Id[{{(\seqname{A}, \seqname{E}, \seqname{C})}}]$ is a
+$\seqname{f} \defeq \morphId[{{(\seqname{A}, \seqname{E}, \seqname{C})}}]$ is a
 strict m-atlas morphism of $\seqname{A}$ to $\seqname{A}$ in the
 coordinate spaces $\seqname{C}$, $\seqname{C}$.
 \end{corollary}
@@ -12872,7 +12872,7 @@ Then
         }
     }
   \defeq \\*
-  \set
+  \setBuild
   {{
     \bigl (
       (\morphName{f}),
@@ -12991,15 +12991,15 @@ $\morphName{f} \maps \seqname{E}^1 \to \seqname{E}^2$ be a
  morphism of $\seqname{A}^1$ to $\seqname{A}^2$ in the coordinate
 spaces $\seqname{C}^1$, $\seqname{C}^2$.
 
-The identity functor $\Functor_{\Classic,\Id}$ is
+The identity functor $\Functor_{\Classic,\morphId}$ is
 
 \begin{equation}
-\Functor_{\Classic,\Id} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
+\Functor_{\Classic,\morphId} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
 \defeq
 (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
 \end{equation}
 \begin{multline}
-\Functor_{\Classic,\Id}
+\Functor_{\Classic,\morphId}
   \bigl (
     (\morphName{f} \maps \seqname{E}^1 \to \seqname{E}^),
     (\seqname{A}^1, \seqname{E}^1, \seqname{C}^1),
@@ -13023,7 +13023,7 @@ Let $\seqname{E}$ and $\seqname{C}$ be sets of model spaces. Then
 $\Atl[Classic](\seqname{E}, \seqname{C})$ is a category and the identity
 morphism for an object $(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)$
 of $\Atl[Classic]_\Ob(\seqname{E}, \seqname{C})$ is
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
 
 \begin{proof}
 Let $(\seqname{A}^i,\seqname{E}^i,\seqname{C}^i)$, $i \in [1,3]$,
@@ -13051,7 +13051,7 @@ $.
 \item [Associativity:]
 Composition is associative by \pagecref{lem:labcomp}.
 \item [Identity:]
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -13088,7 +13088,7 @@ $\Atl[Classic](\seqname{E}, \seqname{C})$.
 They are not, in general, full subcategories.
 \end{remark}
 
-The identity functor $\Functor_{\Classic,\Id}$ is a functor from each of the
+The identity functor $\Functor_{\Classic,\morphId}$ is a functor from each of the
 subcategories to each of the containing categories.
 \end{corollary}
 
@@ -13112,7 +13112,7 @@ Then
 \begin{multline}
 \Atl[Classic]_\Ar(\catName{E}, \catName{C})
 \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (\morphName{f}),
@@ -13212,9 +13212,9 @@ e.g.,
 
 Let $(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1) \in \Atl[\Classic]_\Ob(\catName{E}, \catName{C})$.
 \begin{equation}
-\Id[{{(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)}}] \defeq
+\morphId[{{(\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)}}] \defeq
 \bigl (
-  (\Id[{\seqname{E}^1}], \Id[{\seqname{C}^1}]),
+  (\morphId[{\seqname{E}^1}], \morphId[{\seqname{C}^1}]),
   (\seqname{A}^1, \seqname{E}^1, \seqname{C}^1),
   (\seqname{A}^1, \seqname{E}^1, \seqname{C}^1)
 \bigr )
@@ -13227,7 +13227,7 @@ Let $\catName{E}$ and $\catName{C}$ be model categories. Then
 $\Atl[\Classic](\catName{E}, \catName{C})$ is a category and the identity morphism
 for an object $(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)$ of
 $\Atl[\Classic]_\Ob(\catName{E}, \catName{C})$ is
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$.
 
 \begin{proof}
 Let $(\seqname{A}^i,\seqname{E}^i,\seqname{C}^i)$, $i \in [1,3]$,
@@ -13253,7 +13253,7 @@ in the coordinate spaces $\seqname{C}^1$, $\seqname{C}^3$ by
 Composition is associative by \pagecref{lem:labcomp}.
 
 \item[Identity:]
-$\Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -13350,7 +13350,7 @@ $\Functor_{\M,\Classic}$ satisfies these criteria:
 Let
 $
   \bigl (
-    (\Id[{\seqname{E}^i}], \Id[{\seqname{C}^i}]),
+    (\morphId[{\seqname{E}^i}], \morphId[{\seqname{C}^i}]),
    o^i,
    o^i
   \bigr )
@@ -13361,7 +13361,7 @@ Then
 $
   \bigl (
     (
-     \Id[\seqname{E}^i] \maps \seqname{E}^i \to \seqname{E}^i
+     \morphId[\seqname{E}^i] \maps \seqname{E}^i \to \seqname{E}^i
     ),
     o^i,
     o^i
@@ -13528,7 +13528,7 @@ Let $\seqname{C}$ be a set of real (complex) linear spaces.
 $
   \Triv[\Ck-]{\seqname{C}}
   \defeq
-  \set
+  \setBuild
     {\Triv[\Ck-]{C'}}%
     [C' \in \seqname{C}]
 $
@@ -13541,7 +13541,7 @@ $\Ck$ functions among them.
 
 $\optriv[\Ck-]{\seqname{C}}$, the category of open trivial $\Ck$ model
 spaces in $\seqname{C}$, is the category whose objects are
-$\set {\Triv[\Ck-]{U}}[U \in \op{\seqname{C}}]$, the trivial $\Ck$
+$\setBuild {\Triv[\Ck-]{U}}[U \in \op{\seqname{C}}]$, the trivial $\Ck$
 linear model spaces of non-null open sets of spaces in $\seqname{C}$,
 and whose morphisms are all the $\Ck$ functions among them.
 \end{definition}
@@ -13929,7 +13929,7 @@ $U \in \pi_1[\seqname{A}]$.
 Let $E$ be a topological space and $C$ a linear space. Then
 \begin{equation}
 \Atl[\Ck]_\Ob(E,C) \defeq
-\set
+\setBuild
 {{
   (\seqname{A}, E, C)
 }}%
@@ -13941,7 +13941,7 @@ Let $E$ be a topological space and $C$ a linear space. Then
 \end{equation}
 \begin{equation}
 \full{\Atl[\Ck]_\Ob}(E,C) \defeq
-\set
+\setBuild
 {{
   (\seqname{A}, E, C)
 }}%
@@ -13967,7 +13967,7 @@ set of linear spaces. Then
 \end{equation}
 \begin{equation}
 \full{\Atl[\Ck]_\Ob}(\seqname{E}, C) \defeq
-\set
+\setBuild
 {{
   (\seqname{A}, E, C)
 }}%
@@ -14135,7 +14135,7 @@ Let $E$ be a topological space and $C$ be a linear space.
 
 \begin{multline}
 \maxfull[*]{\Atl[\Ck]_\Ob(E, C)} \defeq
-\set
+\setBuild
 {{
    (\seqname{A}, E, C)
 }}%
@@ -14269,9 +14269,9 @@ $
 
 The identity morphism of $(\seqname{A}^i, E^i, C^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
 \bigl (
-  (\Id[{E^i}], \Id[{C^i}]),
+  (\morphId[{E^i}], \morphId[{C^i}]),
   (\seqname{A}^i, E^i, C^i),
   (\seqname{A}^i, E^i, C^i)
 \bigr )
@@ -14283,7 +14283,7 @@ spaces. Then
 
 \begin{multline}
 \maxfull[*]{\Atl[\Ck,near]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14311,9 +14311,9 @@ spaces. Then
 
 The identity morphism of $(\seqname{A}^i, E^i, C^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
 \bigl (
-  (\Id[{E^i}], \Id[{C^i}]),
+  (\morphId[{E^i}], \morphId[{C^i}]),
   (\seqname{A}^i, E^i, C^i),
   (\seqname{A}^i, E^i, C^i)
 \bigr )
@@ -14396,9 +14396,9 @@ $
 
 The identity morphism of $(\seqname{A}^i, E^i, C^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, E^i, C^i)}}] \defeq
 \bigl (
-  (\Id[{E^i}], \Id[{C^i}]),
+  (\morphId[{E^i}], \morphId[{C^i}]),
   (\seqname{A}^i, E^i, C^i),
   (\seqname{A}^i, E^i, C^i)
 \bigr )
@@ -14409,7 +14409,7 @@ Let $E^i$, $i=1,2$, be topological spaces and $C^i$ be linear
 spaces. Then
 \begin{multline}
 \Atl[\Ck]_\Ar(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14436,7 +14436,7 @@ spaces. Then
 \end{multline}
 \begin{multline}
 \full{\Atl[\Ck]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14463,7 +14463,7 @@ spaces. Then
 \end{multline}
 \begin{multline}
 \maximal{\Atl[\Ck]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14490,7 +14490,7 @@ spaces. Then
 \end{multline}
 \begin{multline}
 \maximal[S-]{\Atl[\Ck]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14517,7 +14517,7 @@ spaces. Then
 \end{multline}
 \begin{multline}
 \maxfull{\Atl[\Ck]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14544,7 +14544,7 @@ spaces. Then
 \end{multline}
 \begin{multline}
 \maxfull[S-]{\Atl[\Ck]_\Ar}(E^1, C^1, E^2, C^2) \defeq
-  \set
+  \setBuild
   {{
     \bigl (
       (
@@ -14817,7 +14817,7 @@ $
   \in
   \Atl[\Ck]_\Ob(\seqname{E}, \seqname{C})
 $.
-Then $\Id[{{(\seqname{A}^i, E^i, C^i)}}]$ is the
+Then $\morphId[{{(\seqname{A}^i, E^i, C^i)}}]$ is the
 identity morphism for $(\seqname{A}^i, E^i, C^i)$.
 
 \begin{proof}
@@ -14853,7 +14853,7 @@ $\Atl[\Ck](\seqname{E}, \seqname{C})$ by
 Composition is associative by \pagecref{lem:labcomp}.
 
 \item[Identity:]
-$\Id[{{(\seqname{A}^i, E^i, C^i)}}]$ is an identity
+$\morphId[{{(\seqname{A}^i, E^i, C^i)}}]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -14974,31 +14974,31 @@ $\Functor^\Ck_{\Ck,\M} o^i$ to $\Functor^\Ck_{\Ck,\M} o^{i+1}$:
 
 \item[Identity:]
 \begin{align*}
-  \Functor^\Ck_{\Ck,\M} \Id[{o^i}]
+  \Functor^\Ck_{\Ck,\M} \morphId[{o^i}]
   & =
   \Functor^\Ck_{\Ck,\M}
     \bigl (
-      (\Id[{E^1}], \Id[{C^1}]),
+      (\morphId[{E^1}], \morphId[{C^1}]),
       o^i,
       o^i
     \bigr )
 \\*
   & =
   \bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     o'^i,
     o'^i
   \bigr )
 \\*
   & =
   \bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     \Functor^\Ck_{\Ck,\M} o^i,
     \Functor^\Ck_{\Ck,\M} o^i
   \bigr )
 \\*
   & =
-  \Id[{\Functor^\Ck_{\Ck,\M} o^i}]
+  \morphId[{\Functor^\Ck_{\Ck,\M} o^i}]
 \end{align*}
 
 \item[Composition:]
@@ -15160,13 +15160,13 @@ $\Functor^\Ck_{\M,\Ck}$ maps identity functions to identity functions:
 \begin{equation*}
 \begin{split}
   &
-\Functor^\Ck_{\M,\Ck} \Id[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]
+\Functor^\Ck_{\M,\Ck} \morphId[{{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]
 =
 \\*
   &
 \Functor^\Ck_{\M,\Ck}
   \bigl (
-    (\Id[{\seqname{E}^i}], \Id[{\seqname{C}^i}]),
+    (\morphId[{\seqname{E}^i}], \morphId[{\seqname{C}^i}]),
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i),
     (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
   \bigr )
@@ -15174,7 +15174,7 @@ $\Functor^\Ck_{\M,\Ck}$ maps identity functions to identity functions:
 \\*
   &
   \bigl (
-    (\Id[{\pi_1(\seqname{E}^i)}], \Id[{\pi_1(\seqname{C}^i)}]),
+    (\morphId[{\pi_1(\seqname{E}^i)}], \morphId[{\pi_1(\seqname{C}^i)}]),
     (\seqname{A}^i, \pi_1(\seqname{E}^i), \pi_1(\seqname{C}^i)
     ),
     (\seqname{A}^i, \pi_1(\seqname{E}^i), \pi_1(\seqname{C}^i)
@@ -15184,14 +15184,14 @@ $\Functor^\Ck_{\M,\Ck}$ maps identity functions to identity functions:
 \\*
   &
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     \Functor^\Ck_{\M,\Ck} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i),
     \Functor^\Ck_{\M,\Ck} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)
   \bigr )
 =
 \\*
   &
-\Id[{{\Functor^\Ck_{\M,\Ck} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]
+\morphId[{{\Functor^\Ck_{\M,\Ck} (\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)}}]
 \end{split}
 \end{equation*}
 
@@ -15298,7 +15298,7 @@ function. Then
   \left (
     C^i,
     \pi_2[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi' \morphCompose \phi^{-1}}%
       [
         \equant
@@ -15382,7 +15382,7 @@ its restrictions are also, hence morphisms, and thus
 $\morphName{f} \restrictto_{A'} A' \to B'$ is a morphism.
 
 \item
-If $(U,V,\phi) \in \seqname{A}^i$ then $\Id[{V}] = \phi \morphCompose \phi^{-1}A$
+If $(U,V,\phi) \in \seqname{A}^i$ then $\morphId[{V}] = \phi \morphCompose \phi^{-1}A$
 is a transition function and hence a morphism of
 $\Functor^{\minimal{\Ck}}_2 (\seqname{A}^i, E^i, C^i)$. If $A, A'$ are
 objects of
@@ -15525,7 +15525,7 @@ $C^i$ is
   \left (
     E^i,
     \pi_1[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi'^{-1} \morphCompose \phi}%
       [
         \equant
@@ -15684,22 +15684,22 @@ $
 \begin{enumerate}
 \item
 $
-\Functor^{\minimal{\Ck}}_1(\Id[{o^i}]) =
+\Functor^{\minimal{\Ck}}_1(\morphId[{o^i}]) =
 \Functor^{\minimal{\Ck}}_1
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{E^i}] \maps \Functor^{\minimal{\Ck}}_1 o^i \to
+\morphId[{E^i}] \maps \Functor^{\minimal{\Ck}}_1 o^i \to
 \Functor^{\minimal{\Ck}}_1 o^i
 $
 \item
 $
-\Id_{\Functor^{\minimal{\Ck}}_1} o^i =
-\Id[{E^i}] \maps \Functor^{\minimal{\Ck}}_1 o^i \to
+\morphId[\Functor^{\minimal{\Ck}}_1] o^i =
+\morphId[{E^i}] \maps \Functor^{\minimal{\Ck}}_1 o^i \to
 \Functor^{\minimal{\Ck}}_1 o^i
 $
 \end{enumerate}
@@ -15784,26 +15784,26 @@ $
 \morphCompose
 \Functor^{\minimal{\Ck}}_2(\morphName{m}^1)
 $
-\item $\Functor (\Id[{A}]) = \Id_{\Functor (A)}$:
+\item $\Functor (\morphId[{A}]) = \morphId[\Functor (A)]$:
 \begin{enumerate}
 \item
 $
-\Functor^{\minimal{\Ck}}_2(\Id[{o^i}]) =
+\Functor^{\minimal{\Ck}}_2(\morphId[{o^i}]) =
 \Functor^{\minimal{\Ck}}_2
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{C^i}] \maps \Functor^{\minimal{\Ck}}_2 o^i \to
+\morphId[{C^i}] \maps \Functor^{\minimal{\Ck}}_2 o^i \to
 \Functor^{\minimal{\Ck}}_2 o^i
 $
 \item
 $
-\Id_{\Functor^{\minimal{\Ck}}_2} o^i =
-\Id[{C^i}] \maps \Functor^{\minimal{\Ck}}_2 o^i \to
+\morphId[\Functor^{\minimal{\Ck}}_2] o^i =
+\morphId[{C^i}] \maps \Functor^{\minimal{\Ck}}_2 o^i \to
 \Functor^{\minimal{\Ck}}_2 o^i
 $
 \end{enumerate}
@@ -16376,13 +16376,13 @@ $
 a $G^\alpha$-$\rho^\alpha$ model space of $X^\alpha \times Y^\alpha$,
 $
   \catSeqName{XYG\rho}_\Ob \defeq \\
-  \set
+  \setBuild
     {\seqname{XY}^\alpha}%
     [\alpha \prec \Alpha]
 $,
 $
   \catSeqName{XYG\rho}_\Ar \defeq
-  \set
+  \setBuild
     {\morphName{f}_C \maps X^\alpha \times Y^\alpha \to X^\beta \times Y^\beta}%
     [
       {
@@ -16422,14 +16422,14 @@ induced by the group action, i.e,
 \begin{equation}
 \Ob(\catName{XY})
 \defeq
-\set
+\setBuild
   {V \times Y}%
   [V \in \op{X}]
 \end{equation}
 \begin{multline}
 \Ar(\catName{XY})
 \defeq
-\set
+\setBuild
   {
    \morphName{f} \maps V \times Y \toiso V \times Y
   }%
@@ -16466,7 +16466,7 @@ topology.
 \end{remark}
 
 The identity morphism of $\Triv[G-\rho-]{X,Y}$ is
-$\Id_{\Triv[G-\rho-]{X,Y}} \defeq \Id_{X \times Y}$.
+$\morphId[\Triv[G-\rho-]{X,Y}] \defeq \morphId[X \times Y]$.
 \end{definition}
 
 \begin{lemma}[The trivial $G$-$\rho$ model space of $X,Y$ is a $G$-$\rho$ model space of $X,Y$]
@@ -16566,7 +16566,7 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 
 The trivial coordinate model category of $\seqname{B}$,
@@ -16577,7 +16577,7 @@ with the group action:
 
 \begin{equation}
 \Trivcat[\Bun-]{\seqname{B}}_\Ob \defeq
-\set
+\setBuild
   {
     \Triv[G-\rho-]{X,Y}
   }%
@@ -16597,7 +16597,7 @@ with the group action:
 \end{equation}
 \begin{multline}
 \Trivcat[\Bun-]{\seqname{B}}_\Ar \defeq
-\set
+\setBuild
   {
     \morphName{f}_C \maps
     X^1 \times Y^1 \to
@@ -16660,7 +16660,7 @@ compatible with the group action:
 \end{equation}
 \begin{multline}
 \Trivcat[\BunProd-]{\seqname{B}}_\Ar \defeq
-\set
+\setBuild
   {
     \morphName{f}_C \defeq  \morphName{f}_X \times \morphName{f}_Y \maps
     X^1 \times Y^1 \to
@@ -16719,12 +16719,12 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 
 Then $\Trivcat[\Bun-]{\seqname{B}}$ is a category and the identity
 morphism for object $\seqname{B}^\alpha$ is
-$\Id_{X^\alpha \times Y^\alpha}$.
+$\morphId[X^\alpha \times Y^\alpha]$.
 
 \begin{proof}
 \leavevmode
@@ -16743,7 +16743,7 @@ morphisms is simply composition of functions.
 
 $\Trivcat[\BunProd-]{\seqname{B}}$ is a category and the identity
 morphism for object $\seqname{B}^\alpha$ is
-$\Id_{X^\alpha \times Y^\alpha}$.
+$\morphId[X^\alpha \times Y^\alpha]$.
 
 \begin{proof}
 \leavevmode
@@ -16905,11 +16905,11 @@ $\pi \restrictto_U$ is a surjection.
 Let $v \in V$, $y \in Y$ and
 $u \defeq \phi^{-1} \bigl ( (v,y) \bigr ) \in U$. Then $\pi(u) = v$.
 \end{proof}
-$\pi^{-1}[\set{v}]$ is homeomorphic to $Y$.
+$\pi^{-1}[\setBuild{v}]$ is homeomorphic to $Y$.
 \begin{proof}
 $\phi$ and $\phi^{-1}$ are homeomorphisms, so their restrictions are
-homeomorphisms and thus $\phi^{-1}[\set{v}]$ is homeomorphic to
-$\set{v} \times Y$, which is homeomorphic to $Y$.
+homeomorphisms and thus $\phi^{-1}[\setBuild{v}]$ is homeomorphic to
+$\setBuild{v} \times Y$, which is homeomorphic to $Y$.
 \end{proof}
 \end{lemma}
 
@@ -17103,11 +17103,11 @@ $\seqname{A}$ covers $E$ iff $E = \union{{\pi_1[\seqname{A}]}}$.
 \begin{lemma}
 Let $\seqname{A}$ be a set of $Y$-$\pi$-bundle charts of $E$ in the
 coordinate space $X \times Y$ that covers $E$ and $x \in X$. Then
-$\pi^{-1}[\set{x}]$ is homeomorphic to $Y$.
+$\pi^{-1}[\setBuild{x}]$ is homeomorphic to $Y$.
 \begin{proof}
 Since $\seqname{A}$ covers $E$, there is a chart $(U, V, \phi)$ in
 $\seqname{A}$ containing $x$.
-Then $\pi^{-1}[\set{x}]$ is homeomorphic to $Y$ by
+Then $\pi^{-1}[\setBuild{x}]$ is homeomorphic to $Y$ by
 \pagecref{def:piepi}.
 \end{proof}
 \end{lemma}
@@ -17154,12 +17154,12 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 Then
 \begin{multline}
 \Atl[\Bun]_\Ob(\seqname{B}^\alpha) \defeq
-  \set
+  \setBuild
   {{
     (
       \seqname{A},
@@ -17343,12 +17343,12 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 Then
 \begin{multline}
 \maximal[**]{\Atl[\Bun]_\Ob(\seqname{B}^\alpha)} \defeq
-  \set
+  \setBuild
   {{
     (
       \seqname{A},
@@ -17446,7 +17446,7 @@ coordinate patch.
 
 Let $x \in X$. If $\seqname{A}$ is full then there exists a chart
 $(U, V, \phi)$ in $\seqname{A}$ such that $x \in \pi_1[V]$. Let $u$ be an
-arbitrary point in $\phi^{-1}[\set{x} \times Y]$. Then
+arbitrary point in $\phi^{-1}[\setBuild{x} \times Y]$. Then
 $\pi(u) = \pi_1(\phi(u)) = x$.
 \end{proof}
 \end{lemma}
@@ -17663,13 +17663,13 @@ $
 
 The identity morphism of $(\seqname{A}^i, \seqname{B}^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i, \seqname{B}^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, \seqname{B}^i)}}] \defeq
 \Bigl (
   \bigl (
-    \Id[{E^i}],
-    \Id[{X^i}],
-    \Id[{Y^i}],
-    \Id[{G^i}]
+    \morphId[{E^i}],
+    \morphId[{X^i}],
+    \morphId[{Y^i}],
+    \morphId[{G^i}]
   \bigr ),
   \bigl ( \seqname{A}^i, \seqname{B}^i\bigr ),
   \bigl ( \seqname{A}^i, \seqname{B}^i\bigr )
@@ -17761,7 +17761,7 @@ below is commutative, as shown in \cref{fig:Bun-AtlM1}.
 D \defeq & \Biggl \{
 \\
   &&
-  \morphName{i} \maps \set{u^1} \morphMono U'^1,
+  \morphName{i} \maps \setBuild{u^1} \morphMono U'^1,
   \phi^1 \maps U'^1 \toiso V'^1,
   \morphName{f}_X \times \morphName{f}_Y \maps V'^1 \to \hat{V}'^2,
 \\
@@ -17821,13 +17821,13 @@ $
 
 The identity morphism of $(\seqname{A}^i, \seqname{B}^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i, \seqname{B}^i)}}] \defeq
+\morphId[{{(\seqname{A}^i, \seqname{B}^i)}}] \defeq
 \Bigl (
 \bigl (
-  \Id[{E^i}],
-  \Id[{X^i}],
-  \Id[{Y^i}],
-  \Id[{G^i}]
+  \morphId[{E^i}],
+  \morphId[{X^i}],
+  \morphId[{Y^i}],
+  \morphId[{G^i}]
 \bigr ),
 \bigl ( \seqname{A}^i, \seqname{B}^i\bigr ),
 \bigl ( \seqname{A}^i, \seqname{B}^i\bigr )
@@ -18125,7 +18125,7 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 
 \begin{multline}
@@ -18138,7 +18138,7 @@ be a set of protobundles.
         )
     }
   \defeq
-  \set
+  \setBuild
     {
       \bigl (
         \morphSeqName{f},
@@ -18170,7 +18170,7 @@ be a set of protobundles.
         )
     }
   \defeq
-  \set
+  \setBuild
     {
       \bigl (
         \morphSeqName{f},
@@ -18219,7 +18219,7 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles. Then
 
 \begin{equation}
@@ -18276,7 +18276,7 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles.
 Then $\maximal[*]{\Atl[\Bun] \seqname{B}}$ is a category.
 
@@ -18286,7 +18286,7 @@ $
   \in
   \Atl[\Bun]_\Ob \seqname{B}
 $.
-Then $\Id[{{(\seqname{A}^\alpha, \seqname{B}^\alpha)}}]$ is the
+Then $\morphId[{{(\seqname{A}^\alpha, \seqname{B}^\alpha)}}]$ is the
 identity morphism for $(\seqname{A}^\alpha, \seqname{B}^\alpha)$.
 
 \begin{proof}
@@ -18318,7 +18318,7 @@ is a morphism of $\Atl[\Bun] \seqname{B}$ by
 Composition is associative by \pagecref{lem:labcomp}.
 
 \item[Identity:]
-$\Id_{(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i}$ is an identity
+$\morphId[(\seqname{A}^i, \seqname{E}^i, \seqname{C}^i)]$ is an identity
 morphism by \cref{lem:labcomp}.
 \end{description}
 \end{proof}
@@ -18383,7 +18383,7 @@ $
   (E^\alpha \in \seqname{E}, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle, \\
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles and
 $
   \seqname{C}^\alpha \defeq
@@ -18499,31 +18499,31 @@ $\Triv[G^{i+1}-\rho^{i+1}-]{X^{i+1},Y^{i+1}}$.
 
 \item[Identity:]
 \begin{align*}
-  \Functor^\Bun_{\Bun,\M} \Id[{{(\seqname{A}^i, \seqname{B}^i)}}]
+  \Functor^\Bun_{\Bun,\M} \morphId[{{(\seqname{A}^i, \seqname{B}^i)}}]
   & =
   \Functor^\Bun_{\Bun,\M}
     \bigl (
-      (\Id[{E^i}], \Id[{X^i}], \Id[{Y^i}], \Id[{G^i}]),
+      (\morphId[{E^i}], \morphId[{X^i}], \morphId[{Y^i}], \morphId[{G^i}]),
       o^i,
       o^i
     \bigr )
 \\*
   & =
   \bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     o'^i,
     o'^i
   \bigr )
 \\*
   & =
   \Bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     \Functor^\Bun_{\Bun,\M} o^i,
     \Functor^\Bun_{\Bun,\M} o^i
   \Bigr )
 \\*
   & =
-  \Id[{\Functor^\Bun_{\Bun,\M} o^i}]
+  \morphId[{\Functor^\Bun_{\Bun,\M} o^i}]
 \end{align*}
 
 \item[Composition:]
@@ -18618,7 +18618,7 @@ $\morphName{f}_C = \morphName{f}_X \times \morphName{f}_Y$.
 Let $\catSeqName{E}$ be a trivial model category, $\catName{C}$ be a
 trivial product coordinate model category with objects \\*
 $
-\set
+\setBuild
   {
     \seqname{C}^\alpha \defeq
     (X^\alpha \times Y^\alpha, \catName{XY}^\alpha)
@@ -18752,7 +18752,7 @@ $\pi_1 \morphCompose \phi = \pi(\seqname{A}^\alpha) \restrictto_U$
 \item
 $
   \seqname{B} \defeq
-  \set
+  \setBuild
   {
     \seqname{B}^\alpha \defeq
       \bigl (
@@ -18875,31 +18875,31 @@ Hence $B^i$ is a protobundle.
 
 \item[Identity:]
 \begin{align*}
-  \Functor^\Bun_{\M-G-\rho,\Bun}  \Id[{{(\seqname{A}^i, \seqname{B}^i)}}]
+  \Functor^\Bun_{\M-G-\rho,\Bun}  \morphId[{{(\seqname{A}^i, \seqname{B}^i)}}]
   & =
-   \Id[{{(\seqname{A}^i, \seqname{B}^i)}}]
+   \morphId[{{(\seqname{A}^i, \seqname{B}^i)}}]
     \bigl (
-      (\Id[{E^i}], \Id[{X^i}], \Id[{Y^i}], \Id[{G^i}]),
+      (\morphId[{E^i}], \morphId[{X^i}], \morphId[{Y^i}], \morphId[{G^i}]),
       o^i,
       o^i
     \bigr )
 \\*
   & =
   \bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     o'^i,
     o'^i
   \bigr )
 \\*
   & =
   \Bigl (
-    (\Id[{\Triv{E^i}}], \Id[{C^i}]),
+    (\morphId[{\Triv{E^i}}], \morphId[{C^i}]),
     \Functor^\Bun_{\M-G-\rho,\Bun} o^i,
     \Functor^\Bun_{\M-G-\rho,\Bun} o^i
   \Bigr )
 \\*
   & =
-  \Id_{\Functor^\Bun_{\M-G-\rho,\Bun} o^i}
+  \morphId[\Functor^\Bun_{\M-G-\rho,\Bun} o^i]
 \end{align*}
 
 \item[Composition:]
@@ -18949,32 +18949,32 @@ functions:
 \begin{equation}
 \begin{split}
   &
-\Functor^\Bun_{\M-G-\rho,\Bun} \Id[{o^i}] =
+\Functor^\Bun_{\M-G-\rho,\Bun} \morphId[{o^i}] =
 \\
   &
 \Functor^\Bun_{\M-G-\rho,\Bun}
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     o^i,
     o^i
   \bigr ) =
 \\
   &
   \bigl (
-    (\Id[{E^i}], \Id[{X^i}], \Id[{Y^i}], \Id[{G^i}]),
+    (\morphId[{E^i}], \morphId[{X^i}], \morphId[{Y^i}], \morphId[{G^i}]),
     (\seqname{A}^i, \seqname{B}^i),
     (\seqname{A}^i, \seqname{B}^i)
   \bigr ) =
 \\
   &
   \bigl (
-    (\Id[{E^i}], \Id[{X^i}], \Id[{Y^i}], \Id[{G^i}]),
+    (\morphId[{E^i}], \morphId[{X^i}], \morphId[{Y^i}], \morphId[{G^i}]),
     \Functor^\Bun_{\M-G-\rho,\Bun} o^i,
     \Functor^\Bun_{\M-G-\rho,\Bun} o^i
   \bigr ) =
 \\
   &
-\Id_{\Functor^\Bun_{\M-G-\rho,\Bun} o^i}
+\morphId[\Functor^\Bun_{\M-G-\rho,\Bun} o^i]
 \end{split}
 \end{equation}
 
@@ -19054,7 +19054,7 @@ $
 \end{enumerate}
 \end{proof}
 
-$\Functor^\Bun_{\Bun,\M} \morphCompose \Functor^\Bun_{\M-G-\rho,\Bun} = \Id$.
+$\Functor^\Bun_{\Bun,\M} \morphCompose \Functor^\Bun_{\M-G-\rho,\Bun} = \morphId$.
 \begin{proof}
 Expanding the definitions, we have
 \begin{enumerate}
@@ -19175,7 +19175,7 @@ $\seqname{A}^i$ is $\Functor^\Bun_2 (\seqname{A}^i, \seqname{B}^i)$.
   \Biggl (
     C^i,
     \pi_2[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi' \morphCompose \phi^{-1}}%
       [
         \equant
@@ -19264,7 +19264,7 @@ also, hence morphisms, and thus
 $\morphName{f} \restrictto_{A'} A' \to B'$ is a morphism.
 
 \item
-If $(U,V,\phi) \in \seqname{A}$ then $\Id[{V}] = \phi \morphCompose \phi^{-1}A$
+If $(U,V,\phi) \in \seqname{A}$ then $\morphId[{V}] = \phi \morphCompose \phi^{-1}A$
 is a transition function and hence a morphism of
 $\Functor^\Bun_2 (\seqname{A}, \seqname{B})$. If $A, A'$ objects of
 $\catName{C}$ and
@@ -19326,7 +19326,7 @@ atlas $\seqname{A}^i$ is
   \bigl (
     E^i,
     \pi_1[\seqname{A}^i],
-    \set
+    \setBuild
       {\phi'^{-1} \morphCompose \phi}%
       [
         \equant
@@ -19398,7 +19398,7 @@ $
   (E^\alpha, X^\alpha, Y^\alpha, \pi^\alpha, G^\alpha, \rho^\alpha)
 $,
 $\alpha \prec \Alpha$, be a protobundle, and
-$\seqname{B} \defeq \set{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
+$\seqname{B} \defeq \setBuild{{\seqname{B}^\alpha}}[\alpha \prec \Alpha]$
 be a set of protobundles. Then
 $\Functor^\Bun_1$ is a functor from
 $\Atl[\Bun] \seqname{B}$ to $\Triv{\seqname{E}}$ and
@@ -19507,22 +19507,22 @@ by \pagecref{def:ismodT}.
 \begin{enumerate}
 \item
 $
-\Functor^\Bun_1(\Id[{o^i}]) =
+\Functor^\Bun_1(\morphId[{o^i}]) =
 \Functor^\Bun_1
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{E^i}] \maps \Functor^\Bun_1 o^i \to
+\morphId[{E^i}] \maps \Functor^\Bun_1 o^i \to
 \Functor^\Bun_1 o^i
 $
 \item
 $
-\Id[{\Functor^\Bun_1}] o^i =
-\Id[{E^i}] \maps \Functor^\Bun_1 o^i \to
+\morphId[{\Functor^\Bun_1}] o^i =
+\morphId[{E^i}] \maps \Functor^\Bun_1 o^i \to
 \Functor^\Bun_1 o^i
 $
 \end{enumerate}
@@ -19603,22 +19603,22 @@ $
 \begin{enumerate}
 \item
 $
-\Functor^\Bun_2 \Id[{o^i}] =
+\Functor^\Bun_2 \morphId[{o^i}] =
 \Functor^\Bun_2
   \bigl (
-    (\Id[{E^i}], \Id[{C^i}]),
+    (\morphId[{E^i}], \morphId[{C^i}]),
     (\seqname{A}^i, E^i, C^i),
     (\seqname{A}^i, E^i, C^i)
   \bigr )
 =
 \\
-\Id[{C^i}] \maps \Functor^\Bun_2 o^i \to
+\morphId[{C^i}] \maps \Functor^\Bun_2 o^i \to
 \Functor^\Bun_2 o^i
 $
 \item
 $
-\Id[{\Functor^\Bun_2}] o^i =
-\Id[{C^i}] \maps \Functor^\Bun_2 o^i \to
+\morphId[{\Functor^\Bun_2}] o^i =
+\morphId[{C^i}] \maps \Functor^\Bun_2 o^i \to
 \Functor^\Bun_2 o^i
 $
 \end{enumerate}
@@ -19647,7 +19647,7 @@ Let
 $
   \seqname{B}
   \defeq
-  \set
+  \setBuild
     {{
       \seqname{B}^\alpha \defeq
       (
@@ -19679,7 +19679,7 @@ Let \\
 $
   \seqname{B}
   \defeq
-  \set
+  \setBuild
     {{
       \seqname{B}^\alpha \defeq
       (
@@ -19730,9 +19730,9 @@ $(\seqname{A}^2,\seqname{B}^2)$ iff it is a
 $\seqname{B^1}$-$\seqname{B^2}$ bundle-atlas morphism from $A^1$ to
 $A^2$. The identity morphism for $(\seqname{A}^i,\seqname{B}^i)$ is
 \begin{equation}
-\Id[{{(\seqname{A}^i,\seqname{B}^i)}}] \defeq
+\morphId[{{(\seqname{A}^i,\seqname{B}^i)}}] \defeq
 \bigl (
-  (\Id[{E^i}], \Id[{X^i}], \Id[{Y^i}], \Id[{G^i}]),
+  (\morphId[{E^i}], \morphId[{X^i}], \morphId[{Y^i}], \morphId[{G^i}]),
   (\seqname{A}^i,\seqname{B}^i),
   (\seqname{A}^i,\seqname{B}^i)
 \bigr )
@@ -19746,7 +19746,7 @@ Let \\
 $
   \seqname{B}
   \defeq
-  \set
+  \setBuild
     {{
       \seqname{B}^\alpha \defeq
       (

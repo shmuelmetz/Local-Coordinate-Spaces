@@ -26,7 +26,14 @@
 %See interface3.pdf
 \RequirePackage{xstring}
 \RequirePackage{cjhebrew}
-\RequirePackage{semanticmath}
+\RequirePackage[style=lcs]{semanticmath}
+% The papers' style: the package default, but with the domain written
+% out in full, as the papers always had it (his decision, 2026-11-18).
+\DeclareSemanticStyle{lcs}{
+  base           = default,
+  morphDomain    = \operatorname{domain}(#1),
+  morphSeqDomain = \operatorname{\seqname{domain}}(#1),
+}
 
 \RequirePackage[cmtip,all,barr]{xy}
 %Remove when xybarr.tex bug fixed
